@@ -1,14 +1,17 @@
 "use client";
 
-import { Parallax, ParallaxLayer } from "@react-spring/parallax";
+// import { Parallax, ParallaxLayer } from "@react-spring/parallax";
 import { Container } from "@/components/ui";
-import Image from "next/image";
-import { Text } from "@/components/ui/text";
-import bottomImage from "@/assets/images/bottom.png";
-import mosqueImage from "@/assets/images/mosque.png";
-import sideImage from "@/assets/images/side.png";
+// import Image from "next/image";
+// import { Text } from "@/components/ui/text";
+// import bottomImage from "@/assets/images/bottom.png";
+// import mosqueImage from "@/assets/images/mosque.png";
+// import sideImage from "@/assets/images/side.png";
+// import { useSpring } from "@react-spring/web";
+import { Test } from "@/components/animate";
 
 export default function Home() {
+  // const springs =
   return (
     <Container
       direction="COL"
@@ -19,8 +22,12 @@ export default function Home() {
         2xl:w-[30%] relative overflow-y-auto container
         `}
     >
-      <Parallax pages={10} style={{ top: "0", left: "0" }}>
-        {/* opening */}
+      <Test
+        loop
+        from={{ transform: "rotate(0deg)", background: "black" }}
+        to={[{ transform: "rotate(15deg)" }, { transform: "rotate(0deg)" }]}
+      />
+      {/* <Parallax pages={10} style={{ top: "0", left: "0" }}>
         <ParallaxLayer
           factor={0.7}
           offset={0}
@@ -58,12 +65,10 @@ export default function Home() {
           <Image alt="footer" src={bottomImage} className="w-full" />
         </ParallaxLayer>
 
-        {/* body */}
         <ParallaxLayer
           offset={2}
           speed={0.3}
           factor={0.5}
-          // style={{ borderBottom: "3px solid yellow" }}
         >
           <Text
             variant="TITLE"
@@ -90,7 +95,6 @@ export default function Home() {
           offset={2.7}
           speed={1}
           factor={0.5}
-          // style={{ borderBottom: "3px solid yellow" }}
         >
           <Text
             variant="TITLE"
@@ -125,7 +129,7 @@ export default function Home() {
 
           
         </ParallaxLayer>
-      </Parallax>
+      </Parallax> */}
     </Container>
   );
 }
