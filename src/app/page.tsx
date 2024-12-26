@@ -37,7 +37,7 @@ export default function Home() {
         `}
     >
       <motion.div
-        style={{ background: "red", width: "100px", height: "100px" }}
+        style={{ background: "green", width: "100px", height: "100px" }}
         initial={initial}
         animate={animate}
         transition={transition}
@@ -45,7 +45,6 @@ export default function Home() {
           setInitial({ marginTop: 0 });
           setAnimate({
             transform: "rotate(-5deg)",
-            background: "blue",
           });
 
           setTransition({
