@@ -1,6 +1,7 @@
-"use client";
+// "use client";
 
 // import { Parallax, ParallaxLayer } from "@react-spring/parallax";
+import { AnimateWrapper } from "@/components/animate";
 import { Container } from "@/components/ui";
 // import Image from "next/image";
 // import { Text } from "@/components/ui/text";
@@ -8,7 +9,6 @@ import { Container } from "@/components/ui";
 // import mosqueImage from "@/assets/images/mosque.png";
 // import sideImage from "@/assets/images/side.png";
 // import { useSpring } from "@react-spring/web";
-import { Test } from "@/components/animate";
 
 export default function Home() {
   // const springs =
@@ -22,11 +22,20 @@ export default function Home() {
         2xl:w-[30%] relative overflow-y-auto container
         `}
     >
-      <Test
-        loop
-        from={{ transform: "rotate(0deg)", background: "black" }}
-        to={[{ transform: "rotate(15deg)" }, { transform: "rotate(0deg)" }]}
-      />
+      <AnimateWrapper
+        loop={{ reverse: true }}
+        from={{
+          background: "black",
+          transform: "rotate(0deg)",
+        }}
+        to={[
+          { background: "red", transform: "rotate(0deg)" },
+          { background: "black", transform: "rotate(20deg)" },
+        ]}
+      >
+        <h1>tetst</h1>
+      </AnimateWrapper>
+
       {/* <Parallax pages={10} style={{ top: "0", left: "0" }}>
         <ParallaxLayer
           factor={0.7}

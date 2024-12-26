@@ -5,18 +5,20 @@ import {
   useIsomorphicLayoutEffect,
   useSpring,
 } from "@react-spring/web";
+import { ReactNode } from "react";
 
 interface Props {
-  from: { [key: string]: string };
-  to: { [key: string]: string } | { [key: string]: string }[];
-  loop: boolean;
+  from: { [key: string]: string | number };
+  to: { [key: string]: string | number } | { [key: string]: string | number }[];
+  loop?: boolean | { [key: string]: any };
+  children: ReactNode;
 }
 
-export const Test = ({ from, to, loop }: Props) => {
+export const AnimateWrapper = ({ from, to, loop, children }: Props) => {
   const [props, api] = useSpring(
     () => ({
-      from: { x: 0 },
-      to: { y: 0 },
+      from,
+      to,
     }),
     []
   );
@@ -30,18 +32,21 @@ export const Test = ({ from, to, loop }: Props) => {
         duration: 1000,
       },
     });
-  }, [to]);
+  }, []);
 
   return (
     <animated.div
       style={{
-        background: "red",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
         width: "200px",
         height: "100px",
         position: "fixed",
-        bottom: 0,
         ...props,
       }}
-    />
+    >
+      {children}
+    </animated.div>
   );
 };
