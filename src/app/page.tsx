@@ -1,13 +1,18 @@
 "use client";
 
+import BaliBookImage from "@/assets/images/bali-book.png";
+import BaliFlowerImage from "@/assets/images/bali-flower.png";
 import BranchTreeImage from "@/assets/images/branch-tree-behind-mosque.png";
 import CloudImage from "@/assets/images/cloud-behind-mosque.png";
-import { Container } from "@/components/ui";
+import { Container, Text } from "@/components/ui";
+import FlowerOmbakImage from "@/assets/images/flower-above-ombak.png";
 import GardenImage from "@/assets/images/garden-infront-mosque.png";
 import Image from "next/image";
 import LeafTreeImage from "@/assets/images/leaf-tree-behind-mosque.png";
 import MosqueImage from "@/assets/images/mosque.png";
 import { MotionWrapper } from "@/components/animate";
+import OrnamentBackgroundImage from "@/assets/images/ornament-bg.png";
+import OrnamentOmbakImage from "@/assets/images/ornament-ombak.png";
 import PinusImage from "@/assets/images/pinus-behind-mosque.png";
 import { useMemo } from "react";
 
@@ -136,6 +141,122 @@ export default function Home() {
         transition={{ ...defaultTransition, duration: 3 }}
       >
         <Image alt="garden" src={GardenImage} className="w-full" />
+      </MotionWrapper>
+
+      {/* BOTTOM */}
+      <MotionWrapper
+        style={{
+          position: "absolute",
+          display: "flex",
+          alignItems: "flex-start",
+          justifyContent: "flex-start",
+          width: "100%",
+          bottom: 0,
+        }}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ ...defaultTransition, duration: 3 }}
+      >
+        <Image
+          alt="ornament background"
+          src={OrnamentBackgroundImage}
+          className="w-full"
+        />
+      </MotionWrapper>
+      <MotionWrapper
+        style={{
+          position: "absolute",
+          display: "flex",
+          alignItems: "flex-start",
+          justifyContent: "flex-start",
+          width: "100%",
+          bottom: 0,
+        }}
+        initial={{ opacity: 0, bottom: "-30px" }}
+        animate={{ opacity: 1, bottom: 0 }}
+        transition={{ ...defaultTransition, duration: 2.8 }}
+      >
+        <Image
+          alt="ornament Ombak"
+          src={OrnamentOmbakImage}
+          className="w-full"
+        />
+      </MotionWrapper>
+      <MotionWrapper
+        style={{
+          position: "absolute",
+          display: "flex",
+          alignItems: "flex-start",
+          justifyContent: "flex-start",
+          width: "100%",
+          bottom: 0,
+        }}
+        initial={{ opacity: 0, bottom: "-30px" }}
+        animate={{ opacity: 1, bottom: 0 }}
+        transition={{ ...defaultTransition, duration: 2.8 }}
+        afterComplete={{
+          initial: {
+            bottom: 0,
+          },
+          animate: {
+            bottom: "-3px",
+          },
+          transition: {
+            repeat: Infinity,
+            repeatType: "reverse",
+            duration: 2,
+          },
+        }}
+      >
+        <Image alt="Flower Ombak" src={FlowerOmbakImage} className="w-full" />
+      </MotionWrapper>
+      <MotionWrapper
+        style={{
+          position: "absolute",
+          display: "flex",
+          alignItems: "flex-start",
+          justifyContent: "flex-start",
+          width: "100%",
+          bottom: 0,
+        }}
+        initial={{ opacity: 0, bottom: "-30px" }}
+        animate={{ opacity: 1, bottom: 0 }}
+        transition={{ ...defaultTransition, duration: 2.8 }}
+      >
+        <Image alt="Bali Book" src={BaliBookImage} className="w-full" />
+      </MotionWrapper>
+      <MotionWrapper
+        style={{
+          position: "absolute",
+          display: "flex",
+          alignItems: "flex-start",
+          justifyContent: "flex-start",
+          width: "100%",
+          bottom: 0,
+        }}
+        initial={{ opacity: 0, bottom: "-30px" }}
+        animate={{ opacity: 1, bottom: 0 }}
+        transition={{ ...defaultTransition, duration: 2.8 }}
+      >
+        <Image alt="Bali Flower" src={BaliFlowerImage} className="w-full" />
+      </MotionWrapper>
+
+      <MotionWrapper
+        style={{
+          position: "absolute",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          width: "100%",
+          top: "50%",
+          left: "50%",
+          transform: "translate(-50%, -50%)",
+        }}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ ...defaultTransition, duration: 2.8 }}
+      >
+        <Text variant="TITLE" customClass="text-[white]">Walimatul `Urs</Text>
       </MotionWrapper>
     </Container>
   );
