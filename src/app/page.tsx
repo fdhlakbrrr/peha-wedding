@@ -14,23 +14,10 @@ import { MotionWrapper } from "@/components/animate";
 import OrnamentBackgroundImage from "@/assets/images/ornament-bg-copy-min.png";
 import OrnamentOmbakImage from "@/assets/images/ornament-ombak-copy-min.png";
 import PinusImage from "@/assets/images/pinus-behind-mosque-copy-min.png";
-import { useMemo } from "react";
+import { useMotionSource } from "@/hooks";
 
 export default function Home() {
-  const defaultTransition = useMemo(() => {
-    return { duration: 2, ease: "easeIn" };
-  }, []);
-
-  const matchMedia = useMemo(() => {
-    if (typeof window !== "undefined") {
-      return {
-        md: window.matchMedia("(min-width: 768px)"),
-        lg: window.matchMedia("(min-width: 1024px)"),
-        xl: window.matchMedia("(min-width: 1280px)"),
-        xxl: window.matchMedia("(min-width: 1536px)"),
-      };
-    }
-  }, []);
+  const { defaultTransition, matchMedia } = useMotionSource();
 
   if (matchMedia) {
     return (
