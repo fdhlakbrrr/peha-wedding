@@ -18,6 +18,7 @@ export const MotionWrapper = ({
   initial,
   animate,
   transition,
+  afterComplete,
 }: Props) => {
   const [initialValue, setInitialValue] = useState<Target | boolean>(initial);
   const [animateValue, setAnimateValue] =
@@ -31,19 +32,14 @@ export const MotionWrapper = ({
       initial={initialValue}
       animate={animateValue}
       transition={transitionValue}
-      onAnimationComplete={() => {
-        setInitialValue({ marginTop: 0 });
-        setAnimateValue({
-          transform: "rotate(-5deg)",
-        });
-
-        setTransitionValue({
-          repeat: Infinity,
-          repeatType: "reverse",
-          ease: "easeOut",
-          duration: 1,
-        });
-      }}
+      onAnimationComplete={
+        afterComplete &&
+        (() => {
+          setInitialValue(afterComplete.initial);
+          setAnimateValue(afterComplete.animate);
+          setTransitionValue(afterComplete.transition);
+        })
+      }
     >
       {children}
     </motion.div>
