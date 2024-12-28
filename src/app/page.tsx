@@ -1,19 +1,19 @@
 "use client";
 
 import { Container, Text } from "@/components/ui";
-import BaliBookImage from "@/assets/images/bali-book-copy.png";
-import BaliFlowerImage from "@/assets/images/bali-flower-copy.png";
-import BranchTreeImage from "@/assets/images/branch-tree-behind-mosque-copy.png";
-import CloudImage from "@/assets/images/cloud-behind-mosque-copy.png";
-import FlowerOmbakImage from "@/assets/images/flower-above-ombak-copy.png";
-import GardenImage from "@/assets/images/garden-infront-mosque-copy.png";
+import BaliBookImage from "@/assets/images/bali-book-copy-min.png";
+import BaliFlowerImage from "@/assets/images/bali-flower-copy-min.png";
+import BranchTreeImage from "@/assets/images/branch-tree-behind-mosque-copy-min.png";
+import CloudImage from "@/assets/images/cloud-behind-mosque-copy-min.png";
+import FlowerOmbakImage from "@/assets/images/flower-above-ombak-copy-min.png";
+import GardenImage from "@/assets/images/garden-infront-mosque-copy-min.png";
 import Image from "next/image";
-import LeafTreeImage from "@/assets/images/leaf-tree-behind-mosque-copy.png";
-import MosqueImage from "@/assets/images/mosque-copy.png";
+import LeafTreeImage from "@/assets/images/leaf-tree-behind-mosque-copy-min.png";
+import MosqueImage from "@/assets/images/mosque-copy-min.png";
 import { MotionWrapper } from "@/components/animate";
-import OrnamentBackgroundImage from "@/assets/images/ornament-bg-copy.png";
-import OrnamentOmbakImage from "@/assets/images/ornament-ombak-copy.png";
-import PinusImage from "@/assets/images/pinus-behind-mosque-copy.png";
+import OrnamentBackgroundImage from "@/assets/images/ornament-bg-copy-min.png";
+import OrnamentOmbakImage from "@/assets/images/ornament-ombak-copy-min.png";
+import PinusImage from "@/assets/images/pinus-behind-mosque-copy-min.png";
 import { useMemo } from "react";
 
 export default function Home() {
