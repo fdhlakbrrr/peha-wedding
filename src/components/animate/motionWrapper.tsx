@@ -1,15 +1,22 @@
+import {
+  MotionStyle,
+  Target,
+  TargetAndTransition,
+  Transition,
+  motion,
+} from "motion/react";
 import { ReactNode, useState } from "react";
-import { Target, TargetAndTransition, Transition, motion } from "motion/react";
 
 interface Props {
   children: ReactNode;
   initial: Target | boolean;
   animate: TargetAndTransition;
   transition: Transition;
+  style?: MotionStyle;
   afterComplete?: {
-    initial: Target | boolean;
+    initial?: Target | boolean;
     animate: TargetAndTransition;
-    transition: Transition;
+    transition?: Transition;
   };
 }
 
@@ -18,6 +25,7 @@ export const MotionWrapper = ({
   initial,
   animate,
   transition,
+  style,
   afterComplete,
 }: Props) => {
   const [initialValue, setInitialValue] = useState<Target | boolean>(initial);
@@ -28,16 +36,17 @@ export const MotionWrapper = ({
 
   return (
     <motion.div
-      style={{ background: "green", width: "100px", height: "100px" }}
+      style={{ ...style }}
       initial={initialValue}
       animate={animateValue}
       transition={transitionValue}
       onAnimationComplete={
         afterComplete &&
         (() => {
-          setInitialValue(afterComplete.initial);
+          afterComplete.initial && setInitialValue(afterComplete.initial);
+          afterComplete.transition &&
+            setTransitionValue(afterComplete.transition);
           setAnimateValue(afterComplete.animate);
-          setTransitionValue(afterComplete.transition);
         })
       }
     >
