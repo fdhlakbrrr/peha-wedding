@@ -9,9 +9,9 @@ import { ReactNode, useState } from "react";
 
 interface Props {
   children: ReactNode;
-  initial: Target | boolean;
+  initial?: Target | boolean;
   animate: TargetAndTransition;
-  transition: Transition;
+  transition?: Transition;
   style?: MotionStyle;
   afterComplete?: {
     initial?: Target | boolean;
@@ -28,11 +28,11 @@ export const MotionWrapper = ({
   style,
   afterComplete,
 }: Props) => {
-  const [initialValue, setInitialValue] = useState<Target | boolean>(initial);
+  const [initialValue, setInitialValue] = useState<Target | boolean | undefined>(initial);
   const [animateValue, setAnimateValue] =
     useState<TargetAndTransition>(animate);
   const [transitionValue, setTransitionValue] =
-    useState<Transition>(transition);
+    useState<Transition | undefined>(transition);
 
   return (
     <motion.div

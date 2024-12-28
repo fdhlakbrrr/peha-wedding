@@ -1,61 +1,142 @@
 "use client";
 
-// import { Parallax, ParallaxLayer } from "@react-spring/parallax";
-// import { AnimateWrapper } from "@/components/animate";
-import { Target, TargetAndTransition, Transition, motion } from "motion/react";
+import BranchTreeImage from "@/assets/images/branch-tree-behind-mosque.png";
+import CloudImage from "@/assets/images/cloud-behind-mosque.png";
 import { Container } from "@/components/ui";
-import { useState } from "react";
-// import Image from "next/image";
-// import { Text } from "@/components/ui/text";
-// import bottomImage from "@/assets/images/bottom.png";
-// import mosqueImage from "@/assets/images/mosque.png";
-// import sideImage from "@/assets/images/side.png";
-// import { useSpring } from "@react-spring/web";
+import GardenImage from "@/assets/images/garden-infront-mosque.png";
+import Image from "next/image";
+import LeafTreeImage from "@/assets/images/leaf-tree-behind-mosque.png";
+import MosqueImage from "@/assets/images/mosque.png";
+import { MotionWrapper } from "@/components/animate";
+import PinusImage from "@/assets/images/pinus-behind-mosque.png";
+import { useMemo } from "react";
 
 export default function Home() {
-  const [initial, setInitial] = useState<Target | boolean>({
-    marginTop: 100,
-    opacity: 0,
-  });
-  const [animate, setAnimate] = useState<TargetAndTransition>({
-    marginTop: 0,
-    opacity: 1,
-  });
-  const [transition, setTransition] = useState<Transition>({
-    ease: "easeOut",
-    duration: 1,
-  });
+  const defaultTransition = useMemo(() => {
+    return { duration: 2, ease: "easeIn" };
+  }, []);
 
   return (
     <Container
       direction="COL"
-      align="CENTER"
+      align="START"
+      justify="START"
       customClass={`w-[100%] h-[100vh]
         justify-self-center gap-5 xl:gap-10 
         2xl:gap-20 md:w-[100%] lg:w-[50%] xl:w-[35%] 
-        2xl:w-[30%] relative overflow-y-auto container
+        2xl:w-[30%] relative overflow-y-auto container p-0
         `}
     >
-      <motion.div
-        style={{ background: "green", width: "100px", height: "100px" }}
-        initial={initial}
-        animate={animate}
-        transition={transition}
-        onAnimationComplete={() => {
-          console.log("COMPLETE");
-          setInitial({ marginTop: 0 });
-          setAnimate({
-            transform: "rotate(-5deg)",
-          });
-
-          setTransition({
+      <MotionWrapper
+        style={{
+          position: "absolute",
+          width: "100%",
+          top: "-50px",
+          // scale: 1.2,
+        }}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ ...defaultTransition, duration: 5 }}
+      >
+        <Image alt="cloud" src={CloudImage} className="w-full" />
+      </MotionWrapper>
+      <MotionWrapper
+        style={{
+          position: "absolute",
+          width: "100%",
+          top: "-50px",
+          // scale: 1.2,
+        }}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ ...defaultTransition, duration: 5 }}
+      >
+        <Image alt="leaf tree" src={LeafTreeImage} className="w-full" />
+      </MotionWrapper>
+      <MotionWrapper
+        style={{
+          position: "absolute",
+          width: "100%",
+          top: "-50px",
+          // scale: 1.2,
+        }}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ ...defaultTransition, duration: 4 }}
+        afterComplete={{
+          initial: {
+            opacity: 1,
+          },
+          animate: {
+            transform: "rotate(-1deg)",
+          },
+          transition: {
             repeat: Infinity,
             repeatType: "reverse",
-            ease: "easeOut",
-            duration: 1,
-          });
+            duration: 2,
+          },
         }}
-      />
+      >
+        <Image alt="branch tree" src={BranchTreeImage} className="w-full" />
+      </MotionWrapper>
+      <MotionWrapper
+        style={{
+          position: "absolute",
+          width: "100%",
+          top: "-50px",
+          // scale: 1.2,
+        }}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ ...defaultTransition, duration: 3 }}
+        afterComplete={{
+          initial: {
+            opacity: 1,
+          },
+          animate: {
+            transform: "rotate(1deg)",
+          },
+          transition: {
+            repeat: Infinity,
+            repeatType: "reverse",
+            duration: 2,
+          },
+        }}
+      >
+        <Image alt="pinus tree" src={PinusImage} className="w-full" />
+      </MotionWrapper>
+
+      <MotionWrapper
+        style={{
+          position: "absolute",
+          display: "flex",
+          alignItems: "flex-start",
+          justifyContent: "flex-start",
+          width: "100%",
+          // padding: 0,
+        }}
+        initial={{ opacity: 0 }}
+        animate={{ marginTop: "-50px", opacity: 1 }}
+        transition={{ ...defaultTransition }}
+      >
+        <Image alt="mosque" src={MosqueImage} className="w-full" />
+      </MotionWrapper>
+
+      <MotionWrapper
+        style={{
+          position: "absolute",
+          display: "flex",
+          alignItems: "flex-start",
+          justifyContent: "flex-start",
+          width: "100%",
+          // padding: 0,
+        }}
+        initial={{ opacity: 0 }}
+        animate={{ marginTop: "-50px", opacity: 1 }}
+        transition={{ ...defaultTransition, duration: 3 }}
+      >
+        <Image alt="garden" src={GardenImage} className="w-full" />
+      </MotionWrapper>
     </Container>
   );
 }
