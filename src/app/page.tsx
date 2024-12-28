@@ -42,6 +42,7 @@ export default function Home() {
         animate={animate}
         transition={transition}
         onAnimationComplete={() => {
+          console.log("COMPLETE");
           setInitial({ marginTop: 0 });
           setAnimate({
             transform: "rotate(-5deg)",
