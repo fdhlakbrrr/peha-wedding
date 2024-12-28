@@ -3,8 +3,8 @@
 import BaliBookImage from "@/assets/images/bali-book.png";
 import BaliFlowerImage from "@/assets/images/bali-flower.png";
 import BranchTreeImage from "@/assets/images/branch-tree-behind-mosque.png";
-import CloudImage from "@/assets/images/cloud-behind-mosque.png";
 import { Container, Text } from "@/components/ui";
+import CloudImage from "@/assets/images/cloud-behind-mosque.png";
 import FlowerOmbakImage from "@/assets/images/flower-above-ombak.png";
 import GardenImage from "@/assets/images/garden-infront-mosque.png";
 import Image from "next/image";
