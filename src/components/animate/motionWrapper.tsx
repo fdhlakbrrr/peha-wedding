@@ -1,5 +1,6 @@
 import * as m from "motion/react-m";
 import {
+  HTMLMotionProps,
   LazyMotion,
   MotionStyle,
   Target,
@@ -22,6 +23,7 @@ interface Props {
     animate: TargetAndTransition;
     transition?: Transition;
   };
+  motionProps?: HTMLMotionProps<"div">;
 }
 
 export const MotionWrapper = ({
@@ -31,6 +33,7 @@ export const MotionWrapper = ({
   transition,
   style,
   afterComplete,
+  motionProps,
 }: Props) => {
   const [initialValue, setInitialValue] = useState<
     Target | boolean | undefined
@@ -42,7 +45,7 @@ export const MotionWrapper = ({
   >(transition);
 
   return (
-    <LazyMotion features={ async () => await loadFeatures}>
+    <LazyMotion features={async () => await loadFeatures}>
       <m.div
         style={{ ...(style as object) }}
         initial={initialValue}
@@ -57,6 +60,7 @@ export const MotionWrapper = ({
             setAnimateValue(afterComplete.animate);
           })
         }
+        {...motionProps}
       >
         {children}
       </m.div>

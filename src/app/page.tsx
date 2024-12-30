@@ -1,6 +1,7 @@
 "use client";
 
 import { Container, Text } from "@/components/ui";
+import { Parallax, ParallaxLayer } from "@react-spring/parallax";
 import BaliBookImage from "@/assets/images/bali-book-copy-min.png";
 import BaliFlowerImage from "@/assets/images/bali-flower-copy-min.png";
 import BranchTreeImage from "@/assets/images/branch-tree-behind-mosque-copy-min.png";
@@ -258,7 +259,11 @@ export default function Home() {
           }}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ ...defaultTransition, duration: 2.8 }}
+          transition={{
+            ...defaultTransition,
+            duration: 5,
+            ease: "anticipate",
+          }}
         >
           <Text variant="TITLE" customClass="text-[white]">
             Walimatul `Urs
