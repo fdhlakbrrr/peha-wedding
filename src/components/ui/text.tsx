@@ -1,5 +1,5 @@
 import { Fragment, memo } from "react";
-import { Pacifico, Roboto, Playfair_Display, Lato, Della_Respira, Cookie, MedievalSharp } from "next/font/google";
+import { Cookie, MedievalSharp } from "next/font/google";
 import type { TextAlign, TextCase, TextVariant } from "@/types";
 import type { ReactNode } from "react";
 import { useText } from "@/hooks/ui";

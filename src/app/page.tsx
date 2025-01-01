@@ -20,17 +20,33 @@ import SideFlowerImage from "@/assets/images/side-min.png";
 import { useMotionSource } from "@/hooks";
 import { MutableRefObject, useEffect, useRef } from "react";
 import { useInView } from "motion/react";
+import {
+  animated,
+  useIsomorphicLayoutEffect,
+  useSpring,
+} from "@react-spring/web";
 
 export default function Home() {
   const { defaultTransition, matchMedia } = useMotionSource();
-  const ayatRef = useRef<HTMLDivElement>(null);
-  const isInView = useInView(ayatRef);
 
-  useEffect(() => {
-    if (isInView) {
-      console.log("Element is in view: ", isInView);
-    }
-  }, [isInView]);
+  // const [styles, api] = useSpring(() => {
+  //   color: "white";
+  //   background: "white";
+  // });
+
+  // useIsomorphicLayoutEffect(() => {
+  //   console.log("asd")
+  //   api.start({
+  //     from: {
+  //       color: "white",
+  //       background: "white",
+  //     },
+  //     to: {
+  //       color: "red",
+  //       background: "red",
+  //     },
+  //   });
+  // }, []);
 
   if (matchMedia) {
     return (
@@ -494,29 +510,22 @@ export default function Home() {
             </ParallaxLayer>
 
             <ParallaxLayer speed={0.5} offset={1}>
-              <div ref={ayatRef}>
-                <MotionWrapper
-                  initial={{ color: "white" }}
-                  motionProps={{
-                    whileInView: { color: "red" },
-                    viewport: { root: ayatRef },
-                    // transition: { duration: 5 },
-                  }}
-                  // animate={{ color: "red" }}
-                  transition={{ duration: 5 }}
+              <MotionWrapper
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 2 }}
+              >
+                <Text
+                  variant="TITLE"
+                  customClass="text-2xl text-center md:text-3xl"
                 >
-                  <Text
-                    variant="TITLE"
-                    customClass="text-2xl text-center md:text-3xl"
-                  >
-                    &quot;Dan segala sesuatu Kami ciptakan berpasang-pasangan
-                    agarkamu mengingat (kebesaran Allah).&quot;
-                  </Text>
-                  <Text customClass="text-xl text-center">
-                    Qs. Adz-Dzariyat: 21
-                  </Text>
-                </MotionWrapper>
-              </div>
+                  &quot;Dan segala sesuatu Kami ciptakan berpasang-pasangan
+                  agarkamu mengingat (kebesaran Allah).&quot;
+                </Text>
+                <Text customClass="text-xl text-center">
+                  Qs. Adz-Dzariyat: 21
+                </Text>
+              </MotionWrapper>
             </ParallaxLayer>
 
             <ParallaxLayer speed={0.5} offset={1}></ParallaxLayer>

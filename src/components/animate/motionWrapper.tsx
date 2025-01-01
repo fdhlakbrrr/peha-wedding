@@ -6,9 +6,10 @@ import {
   Target,
   TargetAndTransition,
   Transition,
+  useInView,
   // motion,
 } from "motion/react";
-import { ReactNode, useState } from "react";
+import { ReactNode, useEffect, useRef, useState } from "react";
 
 const loadFeatures = import("@/lib/motion").then((res) => res.default);
 
@@ -45,12 +46,16 @@ export const MotionWrapper = ({
     Transition | undefined
   >(transition);
 
+  const ref = useRef(null);
+  const isInView = useInView(ref);
+
   return (
     <LazyMotion features={async () => await loadFeatures}>
       <m.div
+        ref={ref}
         style={{ ...(style as object) }}
         initial={initialValue}
-        animate={animateValue}
+        animate={isInView ? animateValue : initialValue}
         transition={transitionValue}
         onAnimationComplete={
           afterComplete &&
