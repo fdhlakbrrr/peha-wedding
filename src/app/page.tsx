@@ -3,7 +3,7 @@
 import { Container, Text } from "@/components/ui";
 import { Parallax, ParallaxLayer } from "@react-spring/parallax";
 import BaliBookImage from "@/assets/images/bali-book-copy-min.png";
-import BaliFlowerImage from "@/assets/images/bali-flower-copy-min.png";
+// import BaliFlowerImage from "@/assets/images/bali-flower-copy-min.png";
 import BranchTreeImage from "@/assets/images/branch-tree-behind-mosque-copy-min.png";
 import CloudImage from "@/assets/images/cloud-behind-mosque-copy-min.png";
 import CloudBg from "@/assets/images/cloud2.png";
@@ -16,37 +16,11 @@ import { MotionWrapper } from "@/components/animate";
 import OrnamentBackgroundImage from "@/assets/images/ornament-bg-copy-min.png";
 import OrnamentOmbakImage from "@/assets/images/ornament-ombak-copy-min.png";
 import PinusImage from "@/assets/images/pinus-behind-mosque-copy-min.png";
-import SideFlowerImage from "@/assets/images/side-min.png";
+// import SideFlowerImage from "@/assets/images/side-min.png";
 import { useMotionSource } from "@/hooks";
-import { MutableRefObject, useEffect, useRef } from "react";
-import { useInView } from "motion/react";
-import {
-  animated,
-  useIsomorphicLayoutEffect,
-  useSpring,
-} from "@react-spring/web";
 
 export default function Home() {
-  const { defaultTransition, matchMedia } = useMotionSource();
-
-  // const [styles, api] = useSpring(() => {
-  //   color: "white";
-  //   background: "white";
-  // });
-
-  // useIsomorphicLayoutEffect(() => {
-  //   console.log("asd")
-  //   api.start({
-  //     from: {
-  //       color: "white",
-  //       background: "white",
-  //     },
-  //     to: {
-  //       color: "red",
-  //       background: "red",
-  //     },
-  //   });
-  // }, []);
+  const {  matchMedia } = useMotionSource();
 
   if (matchMedia) {
     return (
