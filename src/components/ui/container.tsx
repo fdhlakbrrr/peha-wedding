@@ -1,3 +1,4 @@
+"use client";
 import type { LayoutAlign, LayoutDirection } from "@/types";
 import { ReactNode, memo } from "react";
 import { useContainer } from "@/hooks/ui";

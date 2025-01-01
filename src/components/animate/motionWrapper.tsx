@@ -15,7 +15,7 @@ const loadFeatures = import("@/lib/motion").then((res) => res.default);
 interface Props {
   children: ReactNode;
   initial?: Target | boolean;
-  animate: TargetAndTransition;
+  animate?: TargetAndTransition;
   transition?: Transition;
   style?: MotionStyle;
   afterComplete?: {
@@ -38,8 +38,9 @@ export const MotionWrapper = ({
   const [initialValue, setInitialValue] = useState<
     Target | boolean | undefined
   >(initial);
-  const [animateValue, setAnimateValue] =
-    useState<TargetAndTransition>(animate);
+  const [animateValue, setAnimateValue] = useState<TargetAndTransition>(
+    animate as TargetAndTransition
+  );
   const [transitionValue, setTransitionValue] = useState<
     Transition | undefined
   >(transition);

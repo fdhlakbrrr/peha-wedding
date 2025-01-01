@@ -1,11 +1,11 @@
 import { Fragment, memo } from "react";
-import { Pacifico, Roboto } from "next/font/google";
+import { Pacifico, Roboto, Playfair_Display, Lato, Della_Respira, Cookie, MedievalSharp } from "next/font/google";
 import type { TextAlign, TextCase, TextVariant } from "@/types";
 import type { ReactNode } from "react";
 import { useText } from "@/hooks/ui";
 
-const roboto = Roboto({ weight: "400", subsets: ["latin"] });
-const pacifico = Pacifico({ weight: "400", subsets: ["latin"] });
+const playfair = Cookie({ weight: "400", subsets: ["latin"] });
+const lato = MedievalSharp({ weight: "400", subsets: ["latin"] });
 
 interface Props {
   variant?: TextVariant;
@@ -34,7 +34,7 @@ export const Text = memo(function Text({
             textCase
           )} ${getTextAlignClassName(textAlign)} ${
             subText ? "opacity-55 " : " "
-          } ${roboto.className} ${customClass}`}
+          } ${lato.className} ${customClass}`}
         >
           {children}
         </p>
@@ -48,7 +48,7 @@ export const Text = memo(function Text({
         <h1
           className={`text-4xl ${getTextCaseClassName(
             textCase
-          )} ${getTextAlignClassName(textAlign)} ${customClass}`}
+          )} ${getTextAlignClassName(textAlign)} ${playfair.className} ${customClass}`}
         >
           {children}
         </h1>
@@ -62,7 +62,7 @@ export const Text = memo(function Text({
         <h1
           className={`text-xl opacity-55 ${getTextCaseClassName(
             textCase
-          )} ${getTextAlignClassName(textAlign)} ${customClass}`}
+          )} ${getTextAlignClassName(textAlign)} ${lato.className} ${customClass}`}
         >
           {children}
         </h1>
@@ -78,7 +78,7 @@ export const Text = memo(function Text({
             textCase
           )} ${getTextAlignClassName(textAlign)} ${
             subText ? "opacity-55 " : " "
-          } ${pacifico.className} ${customClass}`}
+          } ${playfair.className} ${customClass}`}
         >
           {children}
         </h1>
