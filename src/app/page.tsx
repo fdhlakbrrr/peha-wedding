@@ -2,37 +2,25 @@
 
 import { Container, Text } from "@/components/ui";
 import { Parallax, ParallaxLayer } from "@react-spring/parallax";
-import { useMemo } from "react";
 import BaliBookImage from "@/assets/images/bali-book-copy-min.png";
 // import BaliFlowerImage from "@/assets/images/bali-flower-copy-min.png";
 import BranchTreeImage from "@/assets/images/branch-tree-behind-mosque-copy-min.png";
 import CloudBg from "@/assets/images/cloud2.png";
 import CloudImage from "@/assets/images/cloud-behind-mosque-copy-min.png";
-import dynamic from "next/dynamic";
 import FlowerOmbakImage from "@/assets/images/flower-above-ombak-copy-min.png";
 import GardenImage from "@/assets/images/garden-infront-mosque-copy-min.png";
 import Image from "next/image";
 import LeafTreeImage from "@/assets/images/leaf-tree-behind-mosque-copy-min.png";
+import Map from "@/components/map";
 import MosqueImage from "@/assets/images/mosque-copy-min.png";
 import { MotionWrapper } from "@/components/animate";
 import OrnamentBackgroundImage from "@/assets/images/ornament-bg-copy-min.png";
 import OrnamentOmbakImage from "@/assets/images/ornament-ombak-copy-min.png";
 import PinusImage from "@/assets/images/pinus-behind-mosque-copy-min.png";
-// import SideFlowerImage from "@/assets/images/side-min.png";
 import { useMotionSource } from "@/hooks";
-import Map from "@/components/map";
 
 export default function Home() {
   const { matchMedia } = useMotionSource();
-
-  // const Map = useMemo(
-  //   () =>
-  //     dynamic(() => import("@/components/map"), {
-  //       loading: () => <p>A map is loading</p>,
-  //       ssr: false,
-  //     }),
-  //   []
-  // );
 
   if (matchMedia) {
     return (

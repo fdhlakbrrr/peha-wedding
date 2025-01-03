@@ -1,46 +1,23 @@
 import "mapbox-gl/dist/mapbox-gl.css";
-import ReactMapboxGl, { Layer, Feature, Marker, Popup } from "react-mapbox-gl";
+import Map, { Marker } from "react-map-gl";
+import Image from "next/image";
+import MarkerImage from "../assets/images/location-pin.svg";
 
 export default function MapBox() {
-  const Map = ReactMapboxGl({
-    accessToken:
-      "pk.eyJ1IjoiZmRobGFrYnJyciIsImEiOiJjbTVncHAzdnIwYWFqMmtvZnozZ3ZxanlvIn0.mKA8NTleOB2e48Q-jUUC1Q",
-  });
-
   return (
     <Map
-      style="mapbox://styles/mapbox/streets-v9"
-      containerStyle={{
-        height: "100vh",
-        width: "100vw",
+      mapboxAccessToken="pk.eyJ1IjoiZmRobGFrYnJyciIsImEiOiJjbTVncHAzdnIwYWFqMmtvZnozZ3ZxanlvIn0.mKA8NTleOB2e48Q-jUUC1Q"
+      initialViewState={{
+        latitude: -6.409605,
+        longitude: 106.710373,
+        zoom: 15,
       }}
-      zoom={[18]}
-      center={[106.710373, -6.409605]}
+      style={{ width: "80%", height: "300px" }}
+      mapStyle="mapbox://styles/mapbox/light-v10"
     >
-      <Marker coordinates={[106.710373, -6.409605]}>
-        <div style={{ width: "100px", height: "100px", background: "red" }}>
-          <h1>Kontol</h1>
-        </div>
+      <Marker longitude={106.710373} latitude={-6.409605} anchor="bottom">
+        <Image alt="marker" src={MarkerImage} width={25} height={25} />
       </Marker>
-      {/* <Marker longitude={-6.409605} latitude={106.710373}>
-        <div style={{ width: "100px", height: "100px", background: "red" }}>
-          <h1>Kontol</h1>
-        </div>
-      </Marker>
-      <Popup
-        tipSize={5}
-        anchor="bottom-right"
-        longitude={-6.409605}
-        latitude={106.710373}
-        // onMouseLeave={(e) => {
-        //   e.preventDefault();
-        //   setPopupInfo(null);
-        // }}
-        closeOnClick={true}
-      ></Popup> */}
-      {/* <Layer type="point" id="marker" layout={{ "icon-image": "marker-15" }}>
-        <Feature coordinates={[106.710373, -6.409605]} />
-      </Layer> */}
     </Map>
   );
 }
