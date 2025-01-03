@@ -17,6 +17,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
+        <link
+          href="https://api.mapbox.com/mapbox-gl-js/v1.10.1/mapbox-gl.css"
+          rel="stylesheet"
+        />
         <meta
           name="viewport"
           content="width=device-width, initial-scale=1.0"
