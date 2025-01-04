@@ -18,25 +18,17 @@ import { MotionWrapper } from "@/components/animate";
 import OrnamentBackgroundImage from "@/assets/images/ornament-bg-copy-min.png";
 import OrnamentOmbakImage from "@/assets/images/ornament-ombak-copy-min.png";
 import PinusImage from "@/assets/images/pinus-behind-mosque-copy-min.png";
-import { useMotionSource } from "@/hooks";
+import { useAudio, useMotionSource } from "@/hooks";
 import { useEffect, useRef, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import AudioButton from "@/components/audioButton";
+import { ParallaxClosed, ParallaxOpened } from "@/components/parallax";
 
 export default function Home() {
   const { matchMedia } = useMotionSource();
-  const params = useSearchParams();
-  const parallaxRef = useRef<IParallax>(null);
-
   const [opened, setOpened] = useState(false);
 
-  // const [pages, setpages] = useState(opened ? 3.8 : 1);
-
-  // console.log(pages);
-
-  // useEffect(() => {
-  //   setpages(10);
-  // }, []);
+  
 
   if (matchMedia) {
     return (
@@ -49,7 +41,12 @@ export default function Home() {
           2xl:w-[30%] relative overflow-y-auto overflow-x-hidden container
           `}
         >
-          <Parallax ref={parallaxRef} pages={3.8}>
+          {!opened ? (
+            <ParallaxClosed onOpen={() => setOpened(true)} />
+          ) : (
+            <ParallaxOpened onOpen={() => setOpened(true)} />
+          )}
+          {/* <Parallax ref={parallaxRef} pages={3.8}>
             <ParallaxLayer offset={0} speed={0.8}>
               <MotionWrapper
                 style={{
@@ -400,7 +397,7 @@ export default function Home() {
                 </Text>
               </MotionWrapper>
             </ParallaxLayer>
-          </Parallax>
+          </Parallax> */}
         </Container>
       </>
     );
