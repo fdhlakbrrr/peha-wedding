@@ -1,6 +1,6 @@
 import { IParallax, Parallax, ParallaxLayer } from "@react-spring/parallax";
 import { Text } from "./ui";
-import { useEffect, useRef } from "react";
+import { RefObject, useEffect, useRef } from "react";
 import BaliBookImage from "@/assets/images/bali-book-copy-min.png";
 import BranchTreeImage from "@/assets/images/branch-tree-behind-mosque-copy-min.png";
 import CloudBg from "@/assets/images/cloud2.png";
@@ -19,13 +19,14 @@ import PinusImage from "@/assets/images/pinus-behind-mosque-copy-min.png";
 import { useSearchParams } from "next/navigation";
 import { useAudio } from "@/hooks";
 import AudioButton from "./audioButton";
-import OpenButton from "./openButton";
 
 interface Props {
   onOpen: () => void;
+  ref: RefObject<HTMLAudioElement>;
 }
 
-export const ParallaxClosed = ({ onOpen }: Props) => {
+export const ParallaxClosed = ({ onOpen, ref }: Props) => {
+  // console.log("REF: ", ref)
   return (
     <Parallax pages={1}>
       <ParallaxLayer offset={0} speed={0.8}>
@@ -140,7 +141,7 @@ export const ParallaxClosed = ({ onOpen }: Props) => {
             Walimatul &apos;Urs
           </Text>
           <div className="justify-self-center">
-            <OpenButton onOpen={onOpen} />
+            <AudioButton ref={ref} type="OPEN" onOpen={onOpen} />
           </div>
           {/* <button
             className="button"
@@ -216,7 +217,7 @@ export const ParallaxClosed = ({ onOpen }: Props) => {
   );
 };
 
-export const ParallaxOpened = ({ onOpen }: Props) => {
+export const ParallaxOpened = ({ onOpen, ref }: Props) => {
   const parallaxRef = useRef<IParallax>(null);
   const params = useSearchParams();
   const { togglePlayAudio } = useAudio();
@@ -231,6 +232,9 @@ export const ParallaxOpened = ({ onOpen }: Props) => {
 
   return (
     <Parallax ref={parallaxRef} pages={3.8}>
+      <ParallaxLayer sticky={{ start: 1, end: 3.8 }}>
+        <AudioButton ref={ref} type="TOGGLE" onOpen={onOpen} />
+      </ParallaxLayer>
       <ParallaxLayer offset={0} speed={0.8}>
         <MotionWrapper
           style={{
@@ -343,7 +347,7 @@ export const ParallaxOpened = ({ onOpen }: Props) => {
             Walimatul &apos;Urs
           </Text>
           <div className="justify-self-center">
-            <OpenButton onOpen={onOpen} />
+            <AudioButton ref={ref} type="OPEN" onOpen={onOpen} />
           </div>
           {/* <button
             className="button"

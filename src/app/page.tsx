@@ -2,6 +2,7 @@
 
 import { Container, Text } from "@/components/ui";
 import { IParallax, Parallax, ParallaxLayer } from "@react-spring/parallax";
+import audio1 from "../../public/audio1.mp3";
 import BaliBookImage from "@/assets/images/bali-book-copy-min.png";
 
 // import BaliFlowerImage from "@/assets/images/bali-flower-copy-min.png";
@@ -27,8 +28,14 @@ import { ParallaxClosed, ParallaxOpened } from "@/components/parallax";
 export default function Home() {
   const { matchMedia } = useMotionSource();
   const [opened, setOpened] = useState(false);
+  const [render, setRender] = useState(false);
+  const audioRef = useRef<HTMLAudioElement>(null);
 
-  
+  useEffect(() => {
+    if (audioRef.current) {
+      setRender(true);
+    }
+  }, [audioRef.current]);
 
   if (matchMedia) {
     return (
@@ -41,11 +48,15 @@ export default function Home() {
           2xl:w-[30%] relative overflow-y-auto overflow-x-hidden container
           `}
         >
-          {!opened ? (
-            <ParallaxClosed onOpen={() => setOpened(true)} />
-          ) : (
-            <ParallaxOpened onOpen={() => setOpened(true)} />
-          )}
+          <audio ref={audioRef} autoPlay loop>
+            <source src={audio1} type="audio/mp3" />
+          </audio>
+          {render &&
+            (!opened ? (
+              <ParallaxClosed ref={audioRef} onOpen={() => setOpened(true)} />
+            ) : (
+              <ParallaxOpened ref={audioRef} onOpen={() => setOpened(true)} />
+            ))}
           {/* <Parallax ref={parallaxRef} pages={3.8}>
             <ParallaxLayer offset={0} speed={0.8}>
               <MotionWrapper
