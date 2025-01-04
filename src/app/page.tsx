@@ -1,8 +1,9 @@
 "use client";
 
 import { Container, Text } from "@/components/ui";
-import { Parallax, ParallaxLayer } from "@react-spring/parallax";
+import { IParallax, Parallax, ParallaxLayer } from "@react-spring/parallax";
 import BaliBookImage from "@/assets/images/bali-book-copy-min.png";
+
 // import BaliFlowerImage from "@/assets/images/bali-flower-copy-min.png";
 import BranchTreeImage from "@/assets/images/branch-tree-behind-mosque-copy-min.png";
 import CloudBg from "@/assets/images/cloud2.png";
@@ -18,13 +19,29 @@ import OrnamentBackgroundImage from "@/assets/images/ornament-bg-copy-min.png";
 import OrnamentOmbakImage from "@/assets/images/ornament-ombak-copy-min.png";
 import PinusImage from "@/assets/images/pinus-behind-mosque-copy-min.png";
 import { useMotionSource } from "@/hooks";
+import { useEffect, useRef, useState } from "react";
+import { useSearchParams } from "next/navigation";
+import AudioButton from "@/components/audioButton";
 
 export default function Home() {
   const { matchMedia } = useMotionSource();
+  const params = useSearchParams();
+  const parallaxRef = useRef<IParallax>(null);
+
+  const [opened, setOpened] = useState(false);
+
+  // const [pages, setpages] = useState(opened ? 3.8 : 1);
+
+  // console.log(pages);
+
+  // useEffect(() => {
+  //   setpages(10);
+  // }, []);
 
   if (matchMedia) {
     return (
       <>
+        {/* <AudioButton /> */}
         <Container
           customClass={`w-[100vw] h-[100vh]
           justify-self-center flex flex-col justify-center items-center gap-5 xl:gap-10 
@@ -32,7 +49,7 @@ export default function Home() {
           2xl:w-[30%] relative overflow-y-auto overflow-x-hidden container
           `}
         >
-          <Parallax pages={10}>
+          <Parallax ref={parallaxRef} pages={3.8}>
             <ParallaxLayer offset={0} speed={0.8}>
               <MotionWrapper
                 style={{
@@ -144,6 +161,16 @@ export default function Home() {
                 >
                   Walimatul &apos;Urs
                 </Text>
+                <button
+                  className="button"
+                  onClick={() => {
+                    setOpened(true);
+
+                    parallaxRef.current?.scrollTo(0.7);
+                  }}
+                >
+                  Buka Undangan
+                </button>
               </MotionWrapper>
             </ParallaxLayer>
 
@@ -236,16 +263,16 @@ export default function Home() {
                 animate={{ x: 0 }}
                 transition={{ duration: 2 }}
               >
-                <div className="flex pl-5">
+                <div className="flex flex-col gap-5 pl-5">
                   <Text
                     variant="BODY"
-                    customClass="text-xl text-white  justify-self-center"
+                    customClass="text-xl text-white justify-self-center"
                     textAlign="LEFT"
                   >
                     Calon Mempelai Pria
                     <Text
                       variant="TITLE"
-                      customClass="text-7xl justify-self-center"
+                      customClass="text-7xl"
                       textAlign="LEFT"
                     >
                       Muhammad
@@ -254,6 +281,9 @@ export default function Home() {
                       <br />
                       Rinaldi
                     </Text>
+                  </Text>
+                  <Text customClass="text-white">
+                    Anak kedua dari Bapak Dody Rinaldi & Ibu Evi Srihandajani
                   </Text>
                 </div>
               </MotionWrapper>
@@ -264,7 +294,7 @@ export default function Home() {
                 animate={{ x: 0 }}
                 transition={{ duration: 2 }}
               >
-                <div className="flex justify-end pr-5">
+                <div className="flex flex-col items-end gap-5 pr-5">
                   <Text
                     variant="BODY"
                     customClass="text-xl text-white  justify-self-center"
@@ -273,13 +303,16 @@ export default function Home() {
                     Calon Mempelai Wanita
                     <Text
                       variant="TITLE"
-                      customClass="text-7xl justify-self-center"
+                      customClass="text-7xl"
                       textAlign="RIGHT"
                     >
                       Putri
                       <br />
                       Handayani
                     </Text>
+                  </Text>
+                  <Text customClass="text-white">
+                    Anak kedua dari Bapak Junaedi & Ibu Sawiyah
                   </Text>
                 </div>
               </MotionWrapper>
@@ -293,18 +326,79 @@ export default function Home() {
             >
               <div className="flex flex-col w-full h-[100%] items-center">
                 <Text variant="TITLE">Minggu, 26 Januari</Text>
-                {/* <Text variant="TITLE" customClass="text-5xl">
-                  26 Januari
-                  </Text> */}
                 <Text variant="TITLE" customClass="text-9xl">
                   2025
                 </Text>
                 <Text variant="TITLE">Akad: 08.00 WIB - Selesai</Text>
                 <Text variant="TITLE">Resepsi: 10.00 WIB - Selesai</Text>
+                {params.get("ver") === "2" && (
+                  <Text variant="TITLE">Dresscode: Sage / Coksu</Text>
+                )}
               </div>
             </ParallaxLayer>
-            <ParallaxLayer offset={2.4} speed={1}>
-              <Map />
+            <ParallaxLayer offset={2.4} speed={1} factor={0.5}>
+              <MotionWrapper
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "center",
+                }}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 3 }}
+              >
+                <Text variant="TITLE" customClass="text-white text-5xl">
+                  Alamat
+                </Text>
+                <Map />
+              </MotionWrapper>
+            </ParallaxLayer>
+
+            <ParallaxLayer
+              offset={2.9}
+              speed={0.5}
+              className="bg-gradient-to-b from-[#62796b30] to-[#62796f]"
+            >
+              <MotionWrapper style={{ padding: "10px" }}>
+                <Text
+                  variant="TITLE"
+                  customClass="text-white text-7xl"
+                  textAlign="CENTER"
+                >
+                  بَارَكَ اللَّهُ لَكَ وَبَارَكَ عَلَيْكَ وَ جَمَعَ بَيْنَكُمَا
+                  فِي خَيْرٍ
+                </Text>
+                <Text customClass="text-white text-5xl" textAlign="CENTER">
+                  &quot;Semoga Allah memberkahi engkau di waktu lapang maupun di
+                  waktu sempit, dan semoga Allah (senantiasa) mengumpulkan
+                  kalian berdua dalam kebaikan.&quot; (HR Abu Dawud)
+                </Text>
+              </MotionWrapper>
+            </ParallaxLayer>
+            <ParallaxLayer offset={3.2} speed={0.5}>
+              <MotionWrapper style={{ padding: "10px" }}>
+                <Text customClass="text-white text-5xl" textAlign="CENTER">
+                  Merupakan suatu kehormatan dan kebahagiaan bagi kami, apabila
+                  Bapak/Ibu/Saudara/i berkenan hadir dan memberikan doa restu
+                  kepada kami
+                </Text>
+              </MotionWrapper>
+            </ParallaxLayer>
+            <ParallaxLayer
+              offset={3.3}
+              speed={0.5}
+              factor={0.5}
+              className="bg-[#62796f] flex items-center"
+            >
+              <MotionWrapper style={{ padding: "10px" }}>
+                <Text
+                  variant="TITLE"
+                  customClass="text-white text-5xl"
+                  textAlign="CENTER"
+                >
+                  - Jazakumullahu Khairan Katsiran -
+                </Text>
+              </MotionWrapper>
             </ParallaxLayer>
           </Parallax>
         </Container>
