@@ -24,7 +24,6 @@ interface Props {
 
 export const ParallaxClosed = forwardRef<HTMLAudioElement, Props>(
   function ParallaxClosed({ onOpen }: Props, ref) {
-
     return (
       <Parallax pages={1}>
         <ParallaxLayer offset={0} speed={0.8}>
@@ -125,6 +124,12 @@ export const ParallaxClosed = forwardRef<HTMLAudioElement, Props>(
         </ParallaxLayer>
         <ParallaxLayer offset={0.5}>
           <MotionWrapper
+            style={{
+              width: "100%",
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+            }}
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 2 }}
@@ -220,7 +225,7 @@ export const ParallaxOpened = forwardRef<HTMLAudioElement, Props>(
     return (
       <>
         <AudioButton ref={ref} type="TOGGLE" onOpen={onOpen} />
-        <Parallax ref={parallaxRef} pages={3.8}>
+        <Parallax ref={parallaxRef} pages={4}>
           <ParallaxLayer offset={0} speed={0.8}>
             <MotionWrapper
               style={{
@@ -319,6 +324,12 @@ export const ParallaxOpened = forwardRef<HTMLAudioElement, Props>(
           </ParallaxLayer>
           <ParallaxLayer offset={0.5}>
             <MotionWrapper
+              style={{
+                width: "100%",
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+              }}
               initial={{ opacity: 0, y: 50 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 2 }}
@@ -415,7 +426,12 @@ export const ParallaxOpened = forwardRef<HTMLAudioElement, Props>(
               </div>
             </MotionWrapper>
           </ParallaxLayer>
-          <ParallaxLayer speed={0.5} offset={1.5}>
+          <ParallaxLayer
+            speed={0.5}
+            offset={1.5}
+            factor={0.5}
+            className="flex flex-col gap-5"
+          >
             <MotionWrapper
               initial={{ x: -100 }}
               animate={{ x: 0 }}
@@ -441,8 +457,35 @@ export const ParallaxOpened = forwardRef<HTMLAudioElement, Props>(
                 </Text>
               </div>
             </MotionWrapper>
+            <MotionWrapper
+              initial={{ x: 100 }}
+              animate={{ x: 0 }}
+              transition={{ duration: 2 }}
+            >
+              <div className="flex flex-col items-end gap-5 px-5">
+                <Text
+                  variant="BODY"
+                  customClass="text-xl text-white  justify-self-center"
+                  textAlign="RIGHT"
+                >
+                  Calon Mempelai Wanita
+                  <Text
+                    variant="TITLE"
+                    customClass="text-7xl"
+                    textAlign="RIGHT"
+                  >
+                    Putri
+                    <br />
+                    Handayani
+                  </Text>
+                </Text>
+                <Text customClass="text-white text-xl" textAlign="RIGHT">
+                  Anak kedua dari Bapak Junaedi & Ibu Sawiyah
+                </Text>
+              </div>
+            </MotionWrapper>
           </ParallaxLayer>
-          <ParallaxLayer speed={0.5} offset={1.96}>
+          {/* <ParallaxLayer speed={0.5} offset={2}>
             <MotionWrapper
               initial={{ x: 100 }}
               animate={{ x: 0 }}
@@ -470,7 +513,7 @@ export const ParallaxOpened = forwardRef<HTMLAudioElement, Props>(
                 </Text>
               </div>
             </MotionWrapper>
-          </ParallaxLayer>
+          </ParallaxLayer> */}
 
           <ParallaxLayer
             offset={2}
@@ -496,7 +539,7 @@ export const ParallaxOpened = forwardRef<HTMLAudioElement, Props>(
               )}
             </div>
           </ParallaxLayer>
-          <ParallaxLayer offset={2.4} speed={0.5} factor={0.5}>
+          <ParallaxLayer offset={2.8} speed={0.5} factor={0.5}>
             <MotionWrapper
               style={{
                 display: "flex",
@@ -515,7 +558,7 @@ export const ParallaxOpened = forwardRef<HTMLAudioElement, Props>(
           </ParallaxLayer>
 
           <ParallaxLayer
-            offset={2.95}
+            offset={3}
             speed={0.5}
             className="bg-gradient-to-b from-[#62796b30] to-[#62796f]"
           >
@@ -535,19 +578,36 @@ export const ParallaxOpened = forwardRef<HTMLAudioElement, Props>(
               </Text>
             </MotionWrapper>
           </ParallaxLayer>
-          <ParallaxLayer offset={3.2} speed={0.5}>
-            <MotionWrapper style={{ padding: "10px" }}>
+          <ParallaxLayer offset={3.5} speed={0.5} factor={0.5}>
+            <MotionWrapper
+              style={{ padding: "10px" }}
+              initial={{ x: -200 }}
+              animate={{ x: 0 }}
+              transition={{ duration: 1.5 }}
+            >
               <Text customClass="text-white text-5xl" textAlign="CENTER">
                 Merupakan suatu kehormatan dan kebahagiaan bagi kami, apabila
                 Bapak/Ibu/Saudara/i berkenan hadir dan memberikan doa restu
                 kepada kami
               </Text>
             </MotionWrapper>
+            <MotionWrapper
+              initial={{ x: -200 }}
+              animate={{ x: 0 }}
+              transition={{ duration: 2 }}
+            >
+              <Text
+                variant="TITLE"
+                customClass="text-white text-5xl"
+                textAlign="CENTER"
+              >
+                - Jazakumullahu Khairan Katsiran -
+              </Text>
+            </MotionWrapper>
           </ParallaxLayer>
-          <ParallaxLayer
-            offset={3.3}
+          {/* <ParallaxLayer
+            offset={4}
             speed={0.5}
-            factor={0.5}
             className="bg-[#62796f] flex items-center justify-content-center"
           >
             <MotionWrapper
@@ -566,7 +626,7 @@ export const ParallaxOpened = forwardRef<HTMLAudioElement, Props>(
                 - Jazakumullahu Khairan Katsiran -
               </Text>
             </MotionWrapper>
-          </ParallaxLayer>
+          </ParallaxLayer> */}
         </Parallax>
       </>
     );
