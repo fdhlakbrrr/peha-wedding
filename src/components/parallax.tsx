@@ -524,7 +524,7 @@ export const ParallaxOpened = forwardRef<HTMLAudioElement, Props>(
             <MotionWrapper style={{ padding: "10px" }}>
               <Text
                 variant="TITLE"
-                customClass="text-white text-6xl"
+                customClass="text-white text-5xl mb-5"
                 textAlign="CENTER"
               >
                 بَارَكَ اللَّهُ لَكَ وَبَارَكَ عَلَيْكَ وَ جَمَعَ بَيْنَكُمَا
