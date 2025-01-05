@@ -4,8 +4,11 @@ import { Container } from "./ui";
 import Image from "next/image";
 import Link from "next/link";
 import MarkerImage from "../assets/images/location-pin.svg";
+import { useMotionSource } from "@/hooks";
 
 export default function MapBox() {
+  const { matchMedia } = useMotionSource();
+
   return (
     <Container align="CENTER">
       <Map
@@ -15,7 +18,11 @@ export default function MapBox() {
           longitude: 106.710373,
           zoom: 13,
         }}
-        style={{ width: "80%", height: "300px", borderRadius: "10%" }}
+        style={{
+          width: "80%",
+          height: "300px",
+          borderRadius: "10%",
+        }}
         mapStyle="mapbox://styles/mapbox/outdoors-v12"
       >
         <Marker longitude={106.710373} latitude={-6.409605} anchor="bottom">

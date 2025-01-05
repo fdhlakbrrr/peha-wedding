@@ -1,7 +1,9 @@
+"use client";
+
 import { forwardRef, JSX, RefObject, useEffect, useRef, useState } from "react";
 // import audio1 from "../../public/audio1.mp3";
 import { Button } from "./ui";
-import { useAudio } from "@/hooks";
+import { useAudio, useMotionSource } from "@/hooks";
 import { PauseIcon, PlayCircle, PlayIcon, SpeakerIcon } from "lucide-react";
 
 interface Props {
@@ -11,7 +13,8 @@ interface Props {
 
 const AudioButton = forwardRef<HTMLAudioElement, Props>(
   ({ type, onOpen }: Props, ref) => {
-    console.log("REF: ", ref);
+    const { matchMedia } = useMotionSource();
+    console.log("REF: ", matchMedia);
     const { isPlaying, togglePlayAudio } = useAudio();
 
     const [DisplayIcon, setDisplayIcon] = useState(PauseIcon);
@@ -58,6 +61,7 @@ const AudioButton = forwardRef<HTMLAudioElement, Props>(
           // >
           //   {`${isPlaying ? "Pause" : "Play"}`}
           //   </Button>
+          // <div className="bg-[red] w-[100px] h-[100px] relative">
           <DisplayIcon
             size={40}
             style={{
@@ -67,6 +71,10 @@ const AudioButton = forwardRef<HTMLAudioElement, Props>(
               color: "white",
               padding: "5px",
               cursor: "pointer",
+              position: "fixed",
+              zIndex: "999",
+              top: "5px",
+              left: "5px",
             }}
             onClick={() => {
               togglePlayAudio(
@@ -76,6 +84,7 @@ const AudioButton = forwardRef<HTMLAudioElement, Props>(
               return onOpen();
             }}
           />
+          // </div>
         )}
       </>
     );
