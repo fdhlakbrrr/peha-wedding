@@ -5,7 +5,7 @@ export const useAudio = () => {
 
   const togglePlayAudio = (audioPlayer: HTMLAudioElement) => {
     setIsPlaying(!isPlaying);
-    return isPlaying ? audioPlayer.pause() : audioPlayer.play();
+    return !audioPlayer.paused ? audioPlayer.pause() : audioPlayer.play();
   };
 
   return {

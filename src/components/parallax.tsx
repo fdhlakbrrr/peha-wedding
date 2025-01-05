@@ -222,11 +222,6 @@ export const ParallaxOpened = forwardRef<HTMLAudioElement, Props>(
   ({ onOpen }: Props, ref) => {
     const parallaxRef = useRef<IParallax>(null);
     const params = useSearchParams();
-    const { togglePlayAudio } = useAudio();
-
-    // const handleOpen = () => {
-    //   return togglePlayAudio();
-    // };
 
     useEffect(() => {
       parallaxRef.current && parallaxRef.current.scrollTo(0.7);
