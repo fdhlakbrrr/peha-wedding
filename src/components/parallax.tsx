@@ -16,7 +16,6 @@ import OrnamentBackgroundImage from "@/assets/images/ornament-bg-copy-min.png";
 import OrnamentOmbakImage from "@/assets/images/ornament-ombak-copy-min.png";
 import PinusImage from "@/assets/images/pinus-behind-mosque-copy-min.png";
 import { Text } from "./ui";
-import { useMotionSource } from "@/hooks";
 import { useSearchParams } from "next/navigation";
 
 interface Props {
@@ -25,14 +24,13 @@ interface Props {
 
 export const ParallaxClosed = forwardRef<HTMLAudioElement, Props>(
   function ParallaxClosed({ onOpen }: Props, ref) {
-    const { matchMedia } = useMotionSource();
 
     return (
       <Parallax pages={1}>
         <ParallaxLayer offset={0} speed={0.8}>
           <MotionWrapper
             style={{
-              x: matchMedia?.md ? -700 : -300,
+              x: -300,
             }}
             initial={{ opacity: 0 }}
             animate={{ opacity: 0.5 }}
@@ -41,8 +39,8 @@ export const ParallaxClosed = forwardRef<HTMLAudioElement, Props>(
               layout: true,
             }}
             afterComplete={{
-              initial: { x: matchMedia?.md ? -700 : -300 },
-              animate: { x: matchMedia?.md ? 700 : 300 },
+              initial: { x: -300 },
+              animate: { x: 300 },
               transition: {
                 repeat: Infinity,
                 duration: 7,
