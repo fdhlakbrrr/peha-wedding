@@ -444,7 +444,7 @@ export const ParallaxOpened = forwardRef<HTMLAudioElement, Props>(
               </div>
             </MotionWrapper>
           </ParallaxLayer>
-          <ParallaxLayer speed={0.5} offset={1.9}>
+          <ParallaxLayer speed={0.5} offset={1.96}>
             <MotionWrapper
               initial={{ x: 100 }}
               animate={{ x: 0 }}
@@ -517,14 +517,14 @@ export const ParallaxOpened = forwardRef<HTMLAudioElement, Props>(
           </ParallaxLayer>
 
           <ParallaxLayer
-            offset={2.9}
+            offset={2.95}
             speed={0.5}
             className="bg-gradient-to-b from-[#62796b30] to-[#62796f]"
           >
             <MotionWrapper style={{ padding: "10px" }}>
               <Text
                 variant="TITLE"
-                customClass="text-white text-7xl"
+                customClass="text-white text-6xl"
                 textAlign="CENTER"
               >
                 بَارَكَ اللَّهُ لَكَ وَبَارَكَ عَلَيْكَ وَ جَمَعَ بَيْنَكُمَا
