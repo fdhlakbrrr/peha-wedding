@@ -1,6 +1,6 @@
 import { IParallax, Parallax, ParallaxLayer } from "@react-spring/parallax";
 import { Text } from "./ui";
-import { RefObject, useEffect, useRef } from "react";
+import { forwardRef, RefObject, useEffect, useRef } from "react";
 import BaliBookImage from "@/assets/images/bali-book-copy-min.png";
 import BranchTreeImage from "@/assets/images/branch-tree-behind-mosque-copy-min.png";
 import CloudBg from "@/assets/images/cloud2.png";
@@ -22,559 +22,554 @@ import AudioButton from "./audioButton";
 
 interface Props {
   onOpen: () => void;
-  ref: RefObject<HTMLAudioElement>;
 }
 
-export const ParallaxClosed = ({ onOpen, ref }: Props) => {
-  // console.log("REF: ", ref)
-  return (
-    <Parallax pages={1}>
-      <ParallaxLayer offset={0} speed={0.8}>
-        <MotionWrapper
-          style={{
-            x: -700,
-          }}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 0.5 }}
-          transition={{ duration: 2 }}
-          motionProps={{
-            layout: true,
-          }}
-          afterComplete={{
-            initial: { x: -700 },
-            animate: { x: 700 },
-            transition: {
-              repeat: Infinity,
-              duration: 7,
-              repeatType: "loop",
-            },
-          }}
-        >
-          <Image priority alt="cloud bg" src={CloudBg} />
-        </MotionWrapper>
-      </ParallaxLayer>
-      <ParallaxLayer offset={0} speed={0.8}>
-        <MotionWrapper
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 2 }}
-          motionProps={{
-            layout: true,
-          }}
-        >
-          <Image priority alt="cloud" src={CloudImage} />
-        </MotionWrapper>
-      </ParallaxLayer>
-      <ParallaxLayer offset={0}>
-        <MotionWrapper
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 2 }}
-          motionProps={{
-            layout: true,
-          }}
-        >
-          <Image priority alt="leaf tree" src={LeafTreeImage} />
-        </MotionWrapper>
-      </ParallaxLayer>
-      <ParallaxLayer offset={0}>
-        <MotionWrapper
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 2 }}
-          motionProps={{
-            layout: true,
-          }}
-        >
-          <Image priority alt="branch tree" src={BranchTreeImage} />
-        </MotionWrapper>
-      </ParallaxLayer>
-      <ParallaxLayer offset={0.1}>
-        <MotionWrapper
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 2 }}
-          motionProps={{
-            layout: true,
-          }}
-        >
-          <Image priority alt="pinus tree" src={PinusImage} />
-        </MotionWrapper>
-      </ParallaxLayer>
-      <ParallaxLayer offset={0.15}>
-        <MotionWrapper
-          initial={{ opacity: 0, y: 50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 2 }}
-          motionProps={{
-            layout: true,
-          }}
-        >
-          <Image priority alt="mosque" src={MosqueImage} />
-        </MotionWrapper>
-      </ParallaxLayer>
-      <ParallaxLayer offset={0.3}>
-        <MotionWrapper
-          initial={{ opacity: 0, y: 50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 2 }}
-          motionProps={{
-            layout: true,
-          }}
-        >
-          <Image priority alt="garden" src={GardenImage} />
-        </MotionWrapper>
-      </ParallaxLayer>
-      <ParallaxLayer offset={0.5}>
-        <MotionWrapper
-          initial={{ opacity: 0, y: 50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 2 }}
-          motionProps={{
-            layout: true,
-          }}
-        >
-          <Text
-            variant="TITLE"
-            customClass="text-5xl text-white justify-self-center"
-          >
-            Walimatul &apos;Urs
-          </Text>
-          <div className="justify-self-center">
-            <AudioButton ref={ref} type="OPEN" onOpen={onOpen} />
-          </div>
-          {/* <button
-            className="button"
-            onClick={() => {
-              onOpen();
+export const ParallaxClosed = forwardRef<HTMLAudioElement, Props>(
+  ({ onOpen }: Props, ref) => {
+    // console.log("REF: ", ref)
+    return (
+      <Parallax pages={1}>
+        <ParallaxLayer offset={0} speed={0.8}>
+          <MotionWrapper
+            style={{
+              x: -700,
+            }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 0.5 }}
+            transition={{ duration: 2 }}
+            motionProps={{
+              layout: true,
+            }}
+            afterComplete={{
+              initial: { x: -700 },
+              animate: { x: 700 },
+              transition: {
+                repeat: Infinity,
+                duration: 7,
+                repeatType: "loop",
+              },
             }}
           >
-            Buka Undangan
-          </button> */}
-        </MotionWrapper>
-      </ParallaxLayer>
-
-      <ParallaxLayer offset={0.7} speed={1.8}>
-        <MotionWrapper
-          initial={{ opacity: 0, y: 50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 2 }}
-          motionProps={{
-            layout: true,
-          }}
-        >
-          <Image alt="ornament background" src={OrnamentBackgroundImage} />
-        </MotionWrapper>
-      </ParallaxLayer>
-      <ParallaxLayer offset={0.8} speed={2}>
-        <MotionWrapper
-          initial={{ opacity: 0, y: 50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 2 }}
-          motionProps={{
-            layout: true,
-          }}
-        >
-          <Image priority alt="ornament ombak" src={OrnamentOmbakImage} />
-        </MotionWrapper>
-      </ParallaxLayer>
-      <ParallaxLayer offset={0.8} speed={2}>
-        <MotionWrapper
-          initial={{ opacity: 0, y: 50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 2 }}
-          motionProps={{
-            layout: true,
-          }}
-          afterComplete={{
-            initial: { y: 0 },
-            animate: { y: 5 },
-            transition: {
-              repeat: Infinity,
-              repeatType: "reverse",
-              duration: 2,
-            },
-          }}
-        >
-          <div className="w-[35%] justify-self-center">
-            <Image priority alt="flower ombak" src={FlowerOmbakImage} />
-          </div>
-        </MotionWrapper>
-      </ParallaxLayer>
-      <ParallaxLayer offset={0.65} speed={2}>
-        <MotionWrapper
-          initial={{ opacity: 0, y: 50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 2 }}
-          motionProps={{
-            layout: true,
-          }}
-        >
-          <Image priority alt="flower ombak" src={BaliBookImage} />
-        </MotionWrapper>
-      </ParallaxLayer>
-    </Parallax>
-  );
-};
-
-export const ParallaxOpened = ({ onOpen, ref }: Props) => {
-  const parallaxRef = useRef<IParallax>(null);
-  const params = useSearchParams();
-  const { togglePlayAudio } = useAudio();
-
-  // const handleOpen = () => {
-  //   return togglePlayAudio();
-  // };
-
-  useEffect(() => {
-    parallaxRef.current && parallaxRef.current.scrollTo(0.7);
-  }, [parallaxRef.current]);
-
-  return (
-    <Parallax ref={parallaxRef} pages={3.8}>
-      <ParallaxLayer sticky={{ start: 1, end: 3.8 }}>
-        <AudioButton ref={ref} type="TOGGLE" onOpen={onOpen} />
-      </ParallaxLayer>
-      <ParallaxLayer offset={0} speed={0.8}>
-        <MotionWrapper
-          style={{
-            x: -700,
-          }}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 0.5 }}
-          transition={{ duration: 2 }}
-          motionProps={{
-            layout: true,
-          }}
-          afterComplete={{
-            initial: { x: -700 },
-            animate: { x: 700 },
-            transition: {
-              repeat: Infinity,
-              duration: 7,
-              repeatType: "loop",
-            },
-          }}
-        >
-          <Image priority alt="cloud bg" src={CloudBg} />
-        </MotionWrapper>
-      </ParallaxLayer>
-      <ParallaxLayer offset={0} speed={0.8}>
-        <MotionWrapper
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 2 }}
-          motionProps={{
-            layout: true,
-          }}
-        >
-          <Image priority alt="cloud" src={CloudImage} />
-        </MotionWrapper>
-      </ParallaxLayer>
-      <ParallaxLayer offset={0}>
-        <MotionWrapper
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 2 }}
-          motionProps={{
-            layout: true,
-          }}
-        >
-          <Image priority alt="leaf tree" src={LeafTreeImage} />
-        </MotionWrapper>
-      </ParallaxLayer>
-      <ParallaxLayer offset={0}>
-        <MotionWrapper
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 2 }}
-          motionProps={{
-            layout: true,
-          }}
-        >
-          <Image priority alt="branch tree" src={BranchTreeImage} />
-        </MotionWrapper>
-      </ParallaxLayer>
-      <ParallaxLayer offset={0.1}>
-        <MotionWrapper
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 2 }}
-          motionProps={{
-            layout: true,
-          }}
-        >
-          <Image priority alt="pinus tree" src={PinusImage} />
-        </MotionWrapper>
-      </ParallaxLayer>
-      <ParallaxLayer offset={0.15}>
-        <MotionWrapper
-          initial={{ opacity: 0, y: 50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 2 }}
-          motionProps={{
-            layout: true,
-          }}
-        >
-          <Image priority alt="mosque" src={MosqueImage} />
-        </MotionWrapper>
-      </ParallaxLayer>
-      <ParallaxLayer offset={0.3}>
-        <MotionWrapper
-          initial={{ opacity: 0, y: 50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 2 }}
-          motionProps={{
-            layout: true,
-          }}
-        >
-          <Image priority alt="garden" src={GardenImage} />
-        </MotionWrapper>
-      </ParallaxLayer>
-      <ParallaxLayer offset={0.5}>
-        <MotionWrapper
-          initial={{ opacity: 0, y: 50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 2 }}
-          motionProps={{
-            layout: true,
-          }}
-        >
-          <Text
-            variant="TITLE"
-            customClass="text-5xl text-white justify-self-center"
-          >
-            Walimatul &apos;Urs
-          </Text>
-          <div className="justify-self-center">
-            <AudioButton ref={ref} type="OPEN" onOpen={onOpen} />
-          </div>
-          {/* <button
-            className="button"
-            onClick={() => {
-              onOpen();
-
-              parallaxRef.current?.scrollTo(0.7);
+            <Image priority alt="cloud bg" src={CloudBg} />
+          </MotionWrapper>
+        </ParallaxLayer>
+        <ParallaxLayer offset={0} speed={0.8}>
+          <MotionWrapper
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 2 }}
+            motionProps={{
+              layout: true,
             }}
           >
-            Buka Undangan
-          </button> */}
-        </MotionWrapper>
-      </ParallaxLayer>
-
-      <ParallaxLayer offset={0.7} speed={1.8}>
-        <MotionWrapper
-          initial={{ opacity: 0, y: 50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 2 }}
-          motionProps={{
-            layout: true,
-          }}
-        >
-          <Image alt="ornament background" src={OrnamentBackgroundImage} />
-        </MotionWrapper>
-      </ParallaxLayer>
-      <ParallaxLayer offset={0.8} speed={2}>
-        <MotionWrapper
-          initial={{ opacity: 0, y: 50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 2 }}
-          motionProps={{
-            layout: true,
-          }}
-        >
-          <Image priority alt="ornament ombak" src={OrnamentOmbakImage} />
-        </MotionWrapper>
-      </ParallaxLayer>
-      <ParallaxLayer offset={0.8} speed={2}>
-        <MotionWrapper
-          initial={{ opacity: 0, y: 50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 2 }}
-          motionProps={{
-            layout: true,
-          }}
-          afterComplete={{
-            initial: { y: 0 },
-            animate: { y: 5 },
-            transition: {
-              repeat: Infinity,
-              repeatType: "reverse",
-              duration: 2,
-            },
-          }}
-        >
-          <div className="w-[35%] justify-self-center">
-            <Image priority alt="flower ombak" src={FlowerOmbakImage} />
-          </div>
-        </MotionWrapper>
-      </ParallaxLayer>
-      <ParallaxLayer offset={0.65} speed={2}>
-        <MotionWrapper
-          initial={{ opacity: 0, y: 50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 2 }}
-          motionProps={{
-            layout: true,
-          }}
-        >
-          <Image priority alt="flower ombak" src={BaliBookImage} />
-        </MotionWrapper>
-      </ParallaxLayer>
-
-      <ParallaxLayer speed={0.5} offset={1}>
-        <MotionWrapper
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 2 }}
-        >
-          <div className="text-white p-5 flex flex-col">
+            <Image priority alt="cloud" src={CloudImage} />
+          </MotionWrapper>
+        </ParallaxLayer>
+        <ParallaxLayer offset={0}>
+          <MotionWrapper
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 2 }}
+            motionProps={{
+              layout: true,
+            }}
+          >
+            <Image priority alt="leaf tree" src={LeafTreeImage} />
+          </MotionWrapper>
+        </ParallaxLayer>
+        <ParallaxLayer offset={0}>
+          <MotionWrapper
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 2 }}
+            motionProps={{
+              layout: true,
+            }}
+          >
+            <Image priority alt="branch tree" src={BranchTreeImage} />
+          </MotionWrapper>
+        </ParallaxLayer>
+        <ParallaxLayer offset={0.1}>
+          <MotionWrapper
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 2 }}
+            motionProps={{
+              layout: true,
+            }}
+          >
+            <Image priority alt="pinus tree" src={PinusImage} />
+          </MotionWrapper>
+        </ParallaxLayer>
+        <ParallaxLayer offset={0.15}>
+          <MotionWrapper
+            initial={{ opacity: 0, y: 50 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 2 }}
+            motionProps={{
+              layout: true,
+            }}
+          >
+            <Image priority alt="mosque" src={MosqueImage} />
+          </MotionWrapper>
+        </ParallaxLayer>
+        <ParallaxLayer offset={0.3}>
+          <MotionWrapper
+            initial={{ opacity: 0, y: 50 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 2 }}
+            motionProps={{
+              layout: true,
+            }}
+          >
+            <Image priority alt="garden" src={GardenImage} />
+          </MotionWrapper>
+        </ParallaxLayer>
+        <ParallaxLayer offset={0.5}>
+          <MotionWrapper
+            initial={{ opacity: 0, y: 50 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 2 }}
+            motionProps={{
+              layout: true,
+            }}
+          >
             <Text
               variant="TITLE"
-              customClass="text-2xl text-center md:text-3xl"
+              customClass="text-5xl text-white justify-self-center"
             >
-              &quot;Dan segala sesuatu Kami ciptakan berpasang-pasangan agarkamu
-              mengingat (kebesaran Allah).&quot;
+              Walimatul &apos;Urs
             </Text>
-            <Text customClass="text-xl text-center">Qs. Adz-Dzariyat: 21</Text>
-          </div>
-        </MotionWrapper>
-      </ParallaxLayer>
-      <ParallaxLayer speed={0.5} offset={1.5}>
-        <MotionWrapper
-          initial={{ x: -100 }}
-          animate={{ x: 0 }}
-          transition={{ duration: 2 }}
-        >
-          <div className="flex flex-col gap-5 pl-5">
-            <Text
-              variant="BODY"
-              customClass="text-xl text-white justify-self-center"
-              textAlign="LEFT"
-            >
-              Calon Mempelai Pria
-              <Text variant="TITLE" customClass="text-7xl" textAlign="LEFT">
-                Muhammad
-                <br />
-                Bagas
-                <br />
-                Rinaldi
-              </Text>
-            </Text>
-            <Text customClass="text-white">
-              Anak kedua dari Bapak Dody Rinaldi & Ibu Evi Srihandajani
-            </Text>
-          </div>
-        </MotionWrapper>
-      </ParallaxLayer>
-      <ParallaxLayer speed={0.5} offset={1.9}>
-        <MotionWrapper
-          initial={{ x: 100 }}
-          animate={{ x: 0 }}
-          transition={{ duration: 2 }}
-        >
-          <div className="flex flex-col items-end gap-5 pr-5">
-            <Text
-              variant="BODY"
-              customClass="text-xl text-white  justify-self-center"
-              textAlign="RIGHT"
-            >
-              Calon Mempelai Wanita
-              <Text variant="TITLE" customClass="text-7xl" textAlign="RIGHT">
-                Putri
-                <br />
-                Handayani
-              </Text>
-            </Text>
-            <Text customClass="text-white">
-              Anak kedua dari Bapak Junaedi & Ibu Sawiyah
-            </Text>
-          </div>
-        </MotionWrapper>
-      </ParallaxLayer>
-
-      <ParallaxLayer
-        offset={2}
-        speed={1}
-        factor={0.3}
-        className="flex items-center gap-5 text-white"
-      >
-        <div className="flex flex-col w-full h-[100%] items-center">
-          <Text variant="TITLE">Minggu, 26 Januari</Text>
-          <Text variant="TITLE" customClass="text-9xl">
-            2025
-          </Text>
-          <Text variant="TITLE">Akad: 08.00 WIB - Selesai</Text>
-          <Text variant="TITLE">Resepsi: 10.00 WIB - Selesai</Text>
-          {params.get("ver") === "2" && (
-            <Text variant="TITLE">Dresscode: Sage / Coksu</Text>
-          )}
-        </div>
-      </ParallaxLayer>
-      <ParallaxLayer offset={2.4} speed={1} factor={0.5}>
-        <MotionWrapper
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-          }}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 3 }}
-        >
-          <Text variant="TITLE" customClass="text-white text-5xl">
-            Alamat
-          </Text>
-          <Map />
-        </MotionWrapper>
-      </ParallaxLayer>
-
-      <ParallaxLayer
-        offset={2.9}
-        speed={0.5}
-        className="bg-gradient-to-b from-[#62796b30] to-[#62796f]"
-      >
-        <MotionWrapper style={{ padding: "10px" }}>
-          <Text
-            variant="TITLE"
-            customClass="text-white text-7xl"
-            textAlign="CENTER"
+            <div className="justify-self-center">
+              <AudioButton ref={ref} type="OPEN" onOpen={onOpen} />
+            </div>
+            {/* <button
+            className="button"
+            onClick={() => {
+              onOpen();
+            }}
           >
-            بَارَكَ اللَّهُ لَكَ وَبَارَكَ عَلَيْكَ وَ جَمَعَ بَيْنَكُمَا فِي
-            خَيْرٍ
-          </Text>
-          <Text customClass="text-white text-5xl" textAlign="CENTER">
-            &quot;Semoga Allah memberkahi engkau di waktu lapang maupun di waktu
-            sempit, dan semoga Allah (senantiasa) mengumpulkan kalian berdua
-            dalam kebaikan.&quot; (HR Abu Dawud)
-          </Text>
-        </MotionWrapper>
-      </ParallaxLayer>
-      <ParallaxLayer offset={3.2} speed={0.5}>
-        <MotionWrapper style={{ padding: "10px" }}>
-          <Text customClass="text-white text-5xl" textAlign="CENTER">
-            Merupakan suatu kehormatan dan kebahagiaan bagi kami, apabila
-            Bapak/Ibu/Saudara/i berkenan hadir dan memberikan doa restu kepada
-            kami
-          </Text>
-        </MotionWrapper>
-      </ParallaxLayer>
-      <ParallaxLayer
-        offset={3.3}
-        speed={0.5}
-        factor={0.5}
-        className="bg-[#62796f] flex items-center"
-      >
-        <MotionWrapper style={{ padding: "10px" }}>
-          <Text
-            variant="TITLE"
-            customClass="text-white text-5xl"
-            textAlign="CENTER"
+            Buka Undangan
+          </button> */}
+          </MotionWrapper>
+        </ParallaxLayer>
+
+        <ParallaxLayer offset={0.7} speed={1.8}>
+          <MotionWrapper
+            initial={{ opacity: 0, y: 50 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 2 }}
+            motionProps={{
+              layout: true,
+            }}
           >
-            - Jazakumullahu Khairan Katsiran -
-          </Text>
-        </MotionWrapper>
-      </ParallaxLayer>
-    </Parallax>
-  );
-};
+            <Image alt="ornament background" src={OrnamentBackgroundImage} />
+          </MotionWrapper>
+        </ParallaxLayer>
+        <ParallaxLayer offset={0.8} speed={2}>
+          <MotionWrapper
+            initial={{ opacity: 0, y: 50 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 2 }}
+            motionProps={{
+              layout: true,
+            }}
+          >
+            <Image priority alt="ornament ombak" src={OrnamentOmbakImage} />
+          </MotionWrapper>
+        </ParallaxLayer>
+        <ParallaxLayer offset={0.8} speed={2}>
+          <MotionWrapper
+            initial={{ opacity: 0, y: 50 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 2 }}
+            motionProps={{
+              layout: true,
+            }}
+            afterComplete={{
+              initial: { y: 0 },
+              animate: { y: 5 },
+              transition: {
+                repeat: Infinity,
+                repeatType: "reverse",
+                duration: 2,
+              },
+            }}
+          >
+            <div className="w-[35%] justify-self-center">
+              <Image priority alt="flower ombak" src={FlowerOmbakImage} />
+            </div>
+          </MotionWrapper>
+        </ParallaxLayer>
+        <ParallaxLayer offset={0.65} speed={2}>
+          <MotionWrapper
+            initial={{ opacity: 0, y: 50 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 2 }}
+            motionProps={{
+              layout: true,
+            }}
+          >
+            <Image priority alt="flower ombak" src={BaliBookImage} />
+          </MotionWrapper>
+        </ParallaxLayer>
+      </Parallax>
+    );
+  }
+);
+
+export const ParallaxOpened = forwardRef<HTMLAudioElement, Props>(
+  ({ onOpen }: Props, ref) => {
+    const parallaxRef = useRef<IParallax>(null);
+    const params = useSearchParams();
+    const { togglePlayAudio } = useAudio();
+
+    // const handleOpen = () => {
+    //   return togglePlayAudio();
+    // };
+
+    useEffect(() => {
+      parallaxRef.current && parallaxRef.current.scrollTo(0.7);
+    }, [parallaxRef.current]);
+
+    return (
+      <Parallax ref={parallaxRef} pages={3.8}>
+        <ParallaxLayer sticky={{ start: 1, end: 3.8 }}>
+          <AudioButton ref={ref} type="TOGGLE" onOpen={onOpen} />
+        </ParallaxLayer>
+        <ParallaxLayer offset={0} speed={0.8}>
+          <MotionWrapper
+            style={{
+              x: -700,
+            }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 0.5 }}
+            transition={{ duration: 2 }}
+            motionProps={{
+              layout: true,
+            }}
+            afterComplete={{
+              initial: { x: -700 },
+              animate: { x: 700 },
+              transition: {
+                repeat: Infinity,
+                duration: 7,
+                repeatType: "loop",
+              },
+            }}
+          >
+            <Image priority alt="cloud bg" src={CloudBg} />
+          </MotionWrapper>
+        </ParallaxLayer>
+        <ParallaxLayer offset={0} speed={0.8}>
+          <MotionWrapper
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 2 }}
+            motionProps={{
+              layout: true,
+            }}
+          >
+            <Image priority alt="cloud" src={CloudImage} />
+          </MotionWrapper>
+        </ParallaxLayer>
+        <ParallaxLayer offset={0}>
+          <MotionWrapper
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 2 }}
+            motionProps={{
+              layout: true,
+            }}
+          >
+            <Image priority alt="leaf tree" src={LeafTreeImage} />
+          </MotionWrapper>
+        </ParallaxLayer>
+        <ParallaxLayer offset={0}>
+          <MotionWrapper
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 2 }}
+            motionProps={{
+              layout: true,
+            }}
+          >
+            <Image priority alt="branch tree" src={BranchTreeImage} />
+          </MotionWrapper>
+        </ParallaxLayer>
+        <ParallaxLayer offset={0.1}>
+          <MotionWrapper
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 2 }}
+            motionProps={{
+              layout: true,
+            }}
+          >
+            <Image priority alt="pinus tree" src={PinusImage} />
+          </MotionWrapper>
+        </ParallaxLayer>
+        <ParallaxLayer offset={0.15}>
+          <MotionWrapper
+            initial={{ opacity: 0, y: 50 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 2 }}
+            motionProps={{
+              layout: true,
+            }}
+          >
+            <Image priority alt="mosque" src={MosqueImage} />
+          </MotionWrapper>
+        </ParallaxLayer>
+        <ParallaxLayer offset={0.3}>
+          <MotionWrapper
+            initial={{ opacity: 0, y: 50 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 2 }}
+            motionProps={{
+              layout: true,
+            }}
+          >
+            <Image priority alt="garden" src={GardenImage} />
+          </MotionWrapper>
+        </ParallaxLayer>
+        <ParallaxLayer offset={0.5}>
+          <MotionWrapper
+            initial={{ opacity: 0, y: 50 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 2 }}
+            motionProps={{
+              layout: true,
+            }}
+          >
+            <Text
+              variant="TITLE"
+              customClass="text-5xl text-white justify-self-center"
+            >
+              Walimatul &apos;Urs
+            </Text>
+            <div className="justify-self-center">
+              <AudioButton ref={ref} type="OPEN" onOpen={onOpen} />
+            </div>
+          </MotionWrapper>
+        </ParallaxLayer>
+
+        <ParallaxLayer offset={0.7} speed={1.8}>
+          <MotionWrapper
+            initial={{ opacity: 0, y: 50 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 2 }}
+            motionProps={{
+              layout: true,
+            }}
+          >
+            <Image alt="ornament background" src={OrnamentBackgroundImage} />
+          </MotionWrapper>
+        </ParallaxLayer>
+        <ParallaxLayer offset={0.8} speed={2}>
+          <MotionWrapper
+            initial={{ opacity: 0, y: 50 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 2 }}
+            motionProps={{
+              layout: true,
+            }}
+          >
+            <Image priority alt="ornament ombak" src={OrnamentOmbakImage} />
+          </MotionWrapper>
+        </ParallaxLayer>
+        <ParallaxLayer offset={0.8} speed={2}>
+          <MotionWrapper
+            initial={{ opacity: 0, y: 50 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 2 }}
+            motionProps={{
+              layout: true,
+            }}
+            afterComplete={{
+              initial: { y: 0 },
+              animate: { y: 5 },
+              transition: {
+                repeat: Infinity,
+                repeatType: "reverse",
+                duration: 2,
+              },
+            }}
+          >
+            <div className="w-[35%] justify-self-center">
+              <Image priority alt="flower ombak" src={FlowerOmbakImage} />
+            </div>
+          </MotionWrapper>
+        </ParallaxLayer>
+        <ParallaxLayer offset={0.65} speed={2}>
+          <MotionWrapper
+            initial={{ opacity: 0, y: 50 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 2 }}
+            motionProps={{
+              layout: true,
+            }}
+          >
+            <Image priority alt="flower ombak" src={BaliBookImage} />
+          </MotionWrapper>
+        </ParallaxLayer>
+
+        <ParallaxLayer speed={0.5} offset={1}>
+          <MotionWrapper
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 2 }}
+          >
+            <div className="text-white p-5 flex flex-col">
+              <Text
+                variant="TITLE"
+                customClass="text-2xl text-center md:text-3xl"
+              >
+                &quot;Dan segala sesuatu Kami ciptakan berpasang-pasangan
+                agarkamu mengingat (kebesaran Allah).&quot;
+              </Text>
+              <Text customClass="text-xl text-center">
+                Qs. Adz-Dzariyat: 21
+              </Text>
+            </div>
+          </MotionWrapper>
+        </ParallaxLayer>
+        <ParallaxLayer speed={0.5} offset={1.5}>
+          <MotionWrapper
+            initial={{ x: -100 }}
+            animate={{ x: 0 }}
+            transition={{ duration: 2 }}
+          >
+            <div className="flex flex-col gap-5 pl-5">
+              <Text
+                variant="BODY"
+                customClass="text-xl text-white justify-self-center"
+                textAlign="LEFT"
+              >
+                Calon Mempelai Pria
+                <Text variant="TITLE" customClass="text-7xl" textAlign="LEFT">
+                  Muhammad
+                  <br />
+                  Bagas
+                  <br />
+                  Rinaldi
+                </Text>
+              </Text>
+              <Text customClass="text-white">
+                Anak kedua dari Bapak Dody Rinaldi & Ibu Evi Srihandajani
+              </Text>
+            </div>
+          </MotionWrapper>
+        </ParallaxLayer>
+        <ParallaxLayer speed={0.5} offset={1.9}>
+          <MotionWrapper
+            initial={{ x: 100 }}
+            animate={{ x: 0 }}
+            transition={{ duration: 2 }}
+          >
+            <div className="flex flex-col items-end gap-5 pr-5">
+              <Text
+                variant="BODY"
+                customClass="text-xl text-white  justify-self-center"
+                textAlign="RIGHT"
+              >
+                Calon Mempelai Wanita
+                <Text variant="TITLE" customClass="text-7xl" textAlign="RIGHT">
+                  Putri
+                  <br />
+                  Handayani
+                </Text>
+              </Text>
+              <Text customClass="text-white">
+                Anak kedua dari Bapak Junaedi & Ibu Sawiyah
+              </Text>
+            </div>
+          </MotionWrapper>
+        </ParallaxLayer>
+
+        <ParallaxLayer
+          offset={2}
+          speed={1}
+          factor={0.3}
+          className="flex items-center gap-5 text-white"
+        >
+          <div className="flex flex-col w-full h-[100%] items-center">
+            <Text variant="TITLE">Minggu, 26 Januari</Text>
+            <Text variant="TITLE" customClass="text-9xl">
+              2025
+            </Text>
+            <Text variant="TITLE">Akad: 08.00 WIB - Selesai</Text>
+            <Text variant="TITLE">Resepsi: 10.00 WIB - Selesai</Text>
+            {params.get("ver") === "2" && (
+              <Text variant="TITLE">Dresscode: Sage / Coksu</Text>
+            )}
+          </div>
+        </ParallaxLayer>
+        <ParallaxLayer offset={2.4} speed={1} factor={0.5}>
+          <MotionWrapper
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+            }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 3 }}
+          >
+            <Text variant="TITLE" customClass="text-white text-5xl">
+              Alamat
+            </Text>
+            <Map />
+          </MotionWrapper>
+        </ParallaxLayer>
+
+        <ParallaxLayer
+          offset={2.9}
+          speed={0.5}
+          className="bg-gradient-to-b from-[#62796b30] to-[#62796f]"
+        >
+          <MotionWrapper style={{ padding: "10px" }}>
+            <Text
+              variant="TITLE"
+              customClass="text-white text-7xl"
+              textAlign="CENTER"
+            >
+              بَارَكَ اللَّهُ لَكَ وَبَارَكَ عَلَيْكَ وَ جَمَعَ بَيْنَكُمَا فِي
+              خَيْرٍ
+            </Text>
+            <Text customClass="text-white text-5xl" textAlign="CENTER">
+              &quot;Semoga Allah memberkahi engkau di waktu lapang maupun di
+              waktu sempit, dan semoga Allah (senantiasa) mengumpulkan kalian
+              berdua dalam kebaikan.&quot; (HR Abu Dawud)
+            </Text>
+          </MotionWrapper>
+        </ParallaxLayer>
+        <ParallaxLayer offset={3.2} speed={0.5}>
+          <MotionWrapper style={{ padding: "10px" }}>
+            <Text customClass="text-white text-5xl" textAlign="CENTER">
+              Merupakan suatu kehormatan dan kebahagiaan bagi kami, apabila
+              Bapak/Ibu/Saudara/i berkenan hadir dan memberikan doa restu kepada
+              kami
+            </Text>
+          </MotionWrapper>
+        </ParallaxLayer>
+        <ParallaxLayer
+          offset={3.3}
+          speed={0.5}
+          factor={0.5}
+          className="bg-[#62796f] flex items-center"
+        >
+          <MotionWrapper style={{ padding: "10px" }}>
+            <Text
+              variant="TITLE"
+              customClass="text-white text-5xl"
+              textAlign="CENTER"
+            >
+              - Jazakumullahu Khairan Katsiran -
+            </Text>
+          </MotionWrapper>
+        </ParallaxLayer>
+      </Parallax>
+    );
+  }
+);
