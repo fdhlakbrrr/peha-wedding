@@ -421,7 +421,7 @@ export const ParallaxOpened = forwardRef<HTMLAudioElement, Props>(
               animate={{ x: 0 }}
               transition={{ duration: 2 }}
             >
-              <div className="flex flex-col gap-5 pl-5">
+              <div className="flex flex-col gap-5 px-5">
                 <Text
                   variant="BODY"
                   customClass="text-xl text-white justify-self-center"
@@ -436,7 +436,7 @@ export const ParallaxOpened = forwardRef<HTMLAudioElement, Props>(
                     Rinaldi
                   </Text>
                 </Text>
-                <Text customClass="text-white">
+                <Text customClass="text-white text-xl">
                   Anak kedua dari Bapak Dody Rinaldi & Ibu Evi Srihandajani
                 </Text>
               </div>
@@ -448,7 +448,7 @@ export const ParallaxOpened = forwardRef<HTMLAudioElement, Props>(
               animate={{ x: 0 }}
               transition={{ duration: 2 }}
             >
-              <div className="flex flex-col items-end gap-5 pr-5">
+              <div className="flex flex-col items-end gap-5 px-5">
                 <Text
                   variant="BODY"
                   customClass="text-xl text-white  justify-self-center"
@@ -465,7 +465,7 @@ export const ParallaxOpened = forwardRef<HTMLAudioElement, Props>(
                     Handayani
                   </Text>
                 </Text>
-                <Text customClass="text-white">
+                <Text customClass="text-white text-xl">
                   Anak kedua dari Bapak Junaedi & Ibu Sawiyah
                 </Text>
               </div>
@@ -483,14 +483,14 @@ export const ParallaxOpened = forwardRef<HTMLAudioElement, Props>(
               <Text variant="TITLE" customClass="text-9xl">
                 2025
               </Text>
-              <Text variant="BODY" customClass="text-5xl">
+              <Text variant="BODY" customClass="text-xl">
                 Akad: 08.00 WIB - Selesai
               </Text>
-              <Text variant="BODY" customClass="text-5xl">
+              <Text variant="BODY" customClass="text-xl">
                 Resepsi: 10.00 WIB - Selesai
               </Text>
               {params.get("ver") === "2" && (
-                <Text variant="BODY" customClass="text-5xl">
+                <Text variant="BODY" customClass="text-xl" textAlign="CENTER">
                   Dress Code: Setelan Berwarna Sage / Cream
                 </Text>
               )}
