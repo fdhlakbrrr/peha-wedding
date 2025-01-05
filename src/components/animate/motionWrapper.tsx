@@ -9,7 +9,7 @@ import {
   useInView,
   // motion,
 } from "motion/react";
-import { ReactNode, useEffect, useRef, useState } from "react";
+import { ReactNode, useRef, useState } from "react";
 
 const loadFeatures = import("@/lib/motion").then((res) => res.default);
 

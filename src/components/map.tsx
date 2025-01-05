@@ -4,11 +4,8 @@ import { Container } from "./ui";
 import Image from "next/image";
 import Link from "next/link";
 import MarkerImage from "../assets/images/location-pin.svg";
-import { useMotionSource } from "@/hooks";
 
 export default function MapBox() {
-  const { matchMedia } = useMotionSource();
-
   return (
     <Container align="CENTER">
       <Map

@@ -1,6 +1,6 @@
 import { IParallax, Parallax, ParallaxLayer } from "@react-spring/parallax";
-import { Text } from "./ui";
-import { forwardRef, RefObject, useEffect, useRef } from "react";
+import { forwardRef, useEffect, useRef } from "react";
+import AudioButton from "./audioButton";
 import BaliBookImage from "@/assets/images/bali-book-copy-min.png";
 import BranchTreeImage from "@/assets/images/branch-tree-behind-mosque-copy-min.png";
 import CloudBg from "@/assets/images/cloud2.png";
@@ -15,19 +15,18 @@ import { MotionWrapper } from "@/components/animate";
 import OrnamentBackgroundImage from "@/assets/images/ornament-bg-copy-min.png";
 import OrnamentOmbakImage from "@/assets/images/ornament-ombak-copy-min.png";
 import PinusImage from "@/assets/images/pinus-behind-mosque-copy-min.png";
-// import { useMotionSource } from "@/hooks";
+import { Text } from "./ui";
+import { useMotionSource } from "@/hooks";
 import { useSearchParams } from "next/navigation";
-import { useAudio, useMotionSource } from "@/hooks";
-import AudioButton from "./audioButton";
 
 interface Props {
   onOpen: () => void;
 }
 
 export const ParallaxClosed = forwardRef<HTMLAudioElement, Props>(
-  ({ onOpen }: Props, ref) => {
+  function ParallaxClosed({ onOpen }: Props, ref) {
     const { matchMedia } = useMotionSource();
-    // console.log("REF: ", ref)
+
     return (
       <Parallax pages={1}>
         <ParallaxLayer offset={0} speed={0.8}>
@@ -212,13 +211,13 @@ export const ParallaxClosed = forwardRef<HTMLAudioElement, Props>(
 );
 
 export const ParallaxOpened = forwardRef<HTMLAudioElement, Props>(
-  ({ onOpen }: Props, ref) => {
+  function ParallaxOpened({ onOpen }: Props, ref) {
     const parallaxRef = useRef<IParallax>(null);
     const params = useSearchParams();
 
     useEffect(() => {
       parallaxRef.current && parallaxRef.current.scrollTo(0.7);
-    }, [parallaxRef.current]);
+    }, [parallaxRef]);
 
     return (
       <>
@@ -486,8 +485,12 @@ export const ParallaxOpened = forwardRef<HTMLAudioElement, Props>(
               <Text variant="TITLE" customClass="text-9xl">
                 2025
               </Text>
-              <Text variant="BODY" customClass="text-5xl">Akad: 08.00 WIB - Selesai</Text>
-              <Text variant="BODY" customClass="text-5xl">Resepsi: 10.00 WIB - Selesai</Text>
+              <Text variant="BODY" customClass="text-5xl">
+                Akad: 08.00 WIB - Selesai
+              </Text>
+              <Text variant="BODY" customClass="text-5xl">
+                Resepsi: 10.00 WIB - Selesai
+              </Text>
               {params.get("ver") === "2" && (
                 <Text variant="BODY" customClass="text-5xl">
                   Dress Code: Setelan Berwarna Sage / Cream
