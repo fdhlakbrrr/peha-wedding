@@ -46,6 +46,12 @@ export default function RootLayout({
         ></meta>
         <meta property="og:type" content="website"></meta>
         <meta property="og:url" content="https://peha-dev.vercel.app"></meta>
+        <meta property="og:site_name" content="Walimatul 'Urs"></meta>
+        <meta property="og:title" content="Bagas & Putri Wedding"></meta>
+        <meta
+          property="og:description"
+          content="Walimatul 'Urs - Muhammad Bagas Rinaldi & Putri Handayani"
+        ></meta>
       </head>
       <body className={mainFont.className}>{children}</body>
     </html>
