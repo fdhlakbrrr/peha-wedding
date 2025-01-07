@@ -52,6 +52,10 @@ export default function RootLayout({
           property="og:description"
           content="Walimatul 'Urs - Muhammad Bagas Rinaldi & Putri Handayani"
         ></meta>
+        <meta
+          property="twitter:description"
+          content="Walimatul 'Urs - Muhammad Bagas Rinaldi & Putri Handayani"
+        ></meta>
       </head>
       <body className={mainFont.className}>{children}</body>
     </html>
