@@ -5,7 +5,7 @@ import { Roboto_Mono } from "next/font/google";
 const mainFont = Roboto_Mono({ subsets: ["latin"], weight: "400" });
 
 export const metadata: Metadata = {
-  title: "Bagas & Putri",
+  title: "Bagas & Putri Wedding",
   description: "Walimatul 'Urs | Muhammad Bagas Reinaldi & Putri Handayani",
 };
 
@@ -46,6 +46,13 @@ export default function RootLayout({
         ></meta>
         <meta property="og:type" content="website"></meta>
         <meta property="og:url" content="https://peha-dev.vercel.app"></meta>
+        <meta property="og:site_name" content="Walimatul 'Urs"></meta>
+        <meta property="og:title" content="Bagas & Putri Wedding"></meta>
+        <meta
+          property="og:description"
+          content="Dan segala sesuatu Kami ciptakan berpasang-pasangan
+                  agarkamu mengingat (kebesaran Allah"
+        ></meta>
       </head>
       <body className={mainFont.className}>{children}</body>
     </html>
