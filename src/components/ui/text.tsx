@@ -1,5 +1,5 @@
 import { Fragment, memo } from "react";
-import { Nunito, Noto_Sans } from "next/font/google";
+import { Noto_Sans, Nunito } from "next/font/google";
 import type { TextAlign, TextCase, TextVariant } from "@/types";
 import type { ReactNode } from "react";
 import { useText } from "@/hooks/ui";
