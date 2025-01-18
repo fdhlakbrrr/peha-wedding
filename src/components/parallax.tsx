@@ -485,35 +485,6 @@ export const ParallaxOpened = forwardRef<HTMLAudioElement, Props>(
               </div>
             </MotionWrapper>
           </ParallaxLayer>
-          {/* <ParallaxLayer speed={0.5} offset={2}>
-            <MotionWrapper
-              initial={{ x: 100 }}
-              animate={{ x: 0 }}
-              transition={{ duration: 2 }}
-            >
-              <div className="flex flex-col items-end gap-5 px-5">
-                <Text
-                  variant="BODY"
-                  customClass="text-xl text-white  justify-self-center"
-                  textAlign="RIGHT"
-                >
-                  Calon Mempelai Wanita
-                  <Text
-                    variant="TITLE"
-                    customClass="text-7xl"
-                    textAlign="RIGHT"
-                  >
-                    Putri
-                    <br />
-                    Handayani
-                  </Text>
-                </Text>
-                <Text customClass="text-white text-xl">
-                  Anak kedua dari Bapak Junaedi & Ibu Sawiyah
-                </Text>
-              </div>
-            </MotionWrapper>
-          </ParallaxLayer> */}
 
           <ParallaxLayer
             offset={2}
