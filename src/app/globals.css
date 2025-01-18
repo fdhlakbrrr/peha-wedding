@@ -72,9 +72,14 @@ body {
   padding: 0;
 }
 
-.address {
+.date {
   background-image: url("../assets/images/side-min.png");
 }
+
+/* .address {
+  background-image: url("../assets/images/address-bg.svg");
+  background-size: cover;
+} */
 
 @layer base {
   * {
