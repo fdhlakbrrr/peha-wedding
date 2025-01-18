@@ -226,7 +226,7 @@ export const ParallaxOpened = forwardRef<HTMLAudioElement, Props>(
       <>
         <AudioButton ref={ref} type="TOGGLE" onOpen={onOpen} />
         <Parallax ref={parallaxRef} pages={4}>
-          <ParallaxLayer offset={0} speed={0.8}>
+          {/* <ParallaxLayer offset={0} speed={0.8}>
             <MotionWrapper
               style={{
                 x: -300,
@@ -404,7 +404,7 @@ export const ParallaxOpened = forwardRef<HTMLAudioElement, Props>(
             >
               <Image priority alt="bali book" src={BaliBookImage} />
             </MotionWrapper>
-          </ParallaxLayer>
+          </ParallaxLayer> */}
 
           <ParallaxLayer speed={0.5} offset={1}>
             <MotionWrapper
@@ -423,8 +423,6 @@ export const ParallaxOpened = forwardRef<HTMLAudioElement, Props>(
                 <Text customClass="text-xl text-center">
                   Qs. Adz-Dzariyat: 21
                 </Text>
-
-                <Image priority alt="mosque" src={MosqueImage} className="w-full opacity-[0.5]" />
               </div>
             </MotionWrapper>
           </ParallaxLayer>
