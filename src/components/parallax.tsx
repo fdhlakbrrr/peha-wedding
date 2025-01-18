@@ -412,10 +412,10 @@ export const ParallaxOpened = forwardRef<HTMLAudioElement, Props>(
               animate={{ opacity: 1 }}
               transition={{ duration: 2 }}
             >
-              <div className="text-white p-5 flex flex-col">
+              <div className=" py-5 bg-[white] w-[80%] h-[350px]  justify-self-center rounded-xl flex flex-col justify-between">
                 <Text
                   variant="TITLE"
-                  customClass="text-2xl text-center md:text-3xl"
+                  customClass="text-2xl text-[#667d6f] text-center md:text-3xl"
                 >
                   &quot;Dan segala sesuatu Kami ciptakan berpasang-pasangan
                   agarkamu mengingat (kebesaran Allah).&quot;
@@ -423,6 +423,8 @@ export const ParallaxOpened = forwardRef<HTMLAudioElement, Props>(
                 <Text customClass="text-xl text-center">
                   Qs. Adz-Dzariyat: 21
                 </Text>
+
+                <Image priority alt="mosque" src={MosqueImage} className="w-full opacity-[0.5]" />
               </div>
             </MotionWrapper>
           </ParallaxLayer>
