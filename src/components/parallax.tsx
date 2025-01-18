@@ -341,7 +341,7 @@ export const ParallaxOpened = forwardRef<HTMLAudioElement, Props>(
             className="flex items-center gap-5 text-white"
           >
             <div
-              className="flex flex-col w-full py-5 items-center date bg-[#62786b] gap-10"
+              className="flex flex-col w-full h-fit py-5 items-center date bg-[#62786b] gap-10"
               style={{
                 backgroundRepeat: formalMode ? "repeat" : "no-repeat",
                 backgroundSize: formalMode ? "contain" : "cover",
@@ -353,14 +353,14 @@ export const ParallaxOpened = forwardRef<HTMLAudioElement, Props>(
                   initial={{ x: -30, opacity: 0 }}
                   animate={{ x: 0, opacity: 1 }}
                 >
-                  <Text variant="TITLE">Minggu, 26 Januari</Text>
+                  <Text variant="TITLE" customClass="text-xl">Minggu, 26 Januari</Text>
                 </MotionWrapper>
                 <MotionWrapper
                   transition={{ duration: 1.8, ease: "easeIn" }}
                   initial={{ x: -30, opacity: 0 }}
                   animate={{ x: 0, opacity: 1 }}
                 >
-                  <Text variant="TITLE" customClass="text-9xl">
+                  <Text variant="TITLE" customClass="text-5xl">
                     2025
                   </Text>
                 </MotionWrapper>
@@ -378,15 +378,15 @@ export const ParallaxOpened = forwardRef<HTMLAudioElement, Props>(
                 </MotionWrapper>
               </div>
               {formalMode && (
-                <div className="flex flex-col gap-5">
+                <div className="flex flex-col items-center gap-5">
                   <Text
                     variant="TITLE"
-                    customClass="text-2xl"
+                    customClass="text-xl"
                     textAlign="CENTER"
                   >
                     Dress Code
                   </Text>
-                  <div className="flex gap-10">
+                  <div className="flex justify-center gap-6">
                     <MotionWrapper
                       initial={{ y: 30 }}
                       animate={{ y: 0 }}
@@ -396,8 +396,8 @@ export const ParallaxOpened = forwardRef<HTMLAudioElement, Props>(
                       }}
                     >
                       <div className="flex flex-col items-center">
-                        <div className="w-[100px] h-[100px] rounded-full bg-[#86A788]"></div>
-                        <Text variant="BODY">Sage green</Text>
+                        <div className="w-[50px] h-[50px] rounded-full bg-[#86A788]"></div>
+                        <Text variant="BODY">Sage<br/>green</Text>
                       </div>
                     </MotionWrapper>
 
@@ -410,7 +410,7 @@ export const ParallaxOpened = forwardRef<HTMLAudioElement, Props>(
                       }}
                     >
                       <div className="flex flex-col items-center">
-                        <div className="w-[100px] h-[100px] rounded-full bg-[#F1E5D1]"></div>
+                        <div className="w-[50px] h-[50px] rounded-full bg-[#F1E5D1]"></div>
                         <Text variant="BODY">Cream</Text>
                       </div>
                     </MotionWrapper>
@@ -424,7 +424,7 @@ export const ParallaxOpened = forwardRef<HTMLAudioElement, Props>(
                       }}
                     >
                       <div className="flex flex-col items-center">
-                        <div className="w-[100px] h-[100px] rounded-full bg-[#A79277]"></div>
+                        <div className="w-[50px] h-[50px] rounded-full bg-[#A79277]"></div>
                         <Text variant="BODY">Coksu</Text>
                       </div>
                     </MotionWrapper>
@@ -494,7 +494,7 @@ export const ParallaxOpened = forwardRef<HTMLAudioElement, Props>(
                     <Text variant="TITLE" customClass="text-xl text-white">
                       Bank BSI
                     </Text>
-                    <div className="flex items-center justify-center gap-5 text-white cursor-pointer">
+                    <div className="flex flex-col items-center justify-center gap-5 text-white cursor-pointer">
                       <Text variant="TITLE" customClass="text-xl">
                         7202949422 a/n Putri Handayani
                       </Text>
