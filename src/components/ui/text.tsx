@@ -1,11 +1,11 @@
-import { Cookie, MedievalSharp } from "next/font/google";
 import { Fragment, memo } from "react";
+import { Nunito, Noto_Sans } from "next/font/google";
 import type { TextAlign, TextCase, TextVariant } from "@/types";
 import type { ReactNode } from "react";
 import { useText } from "@/hooks/ui";
 
-const playfair = Cookie({ weight: "400", subsets: ["latin"] });
-const lato = MedievalSharp({ weight: "400", subsets: ["latin"] });
+const playfair = Noto_Sans({ weight: "500", subsets: ["latin"] });
+const lato = Nunito({ weight: "400", subsets: ["latin"] });
 
 interface Props {
   variant?: TextVariant;

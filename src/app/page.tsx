@@ -43,9 +43,9 @@ export default function Home() {
             <source src={audio1} type="audio/mp3" />
           </audio>
           {render &&
-            (!opened ? (
-              <ParallaxClosed ref={audioRef} onOpen={() => setOpened(true)} />
-            ) : (
+            // (!opened ? (
+            //   <ParallaxClosed ref={audioRef} onOpen={() => setOpened(true)} />
+            // ) : (
               <>
                 <div className="h-[100vh] w-full relative">
                   {/* <div style={{ position: "absolute", top: 0 }}> */}
@@ -108,7 +108,8 @@ export default function Home() {
                 </div>
                 <ParallaxOpened ref={audioRef} onOpen={() => setOpened(true)} />
               </>
-            ))}
+            // ))
+            }
 
           {/* {!opened ? (
             <ParallaxClosed ref={audioRef} onOpen={() => setOpened(true)} />

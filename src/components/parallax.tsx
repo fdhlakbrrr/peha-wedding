@@ -2,6 +2,7 @@ import { IParallax, Parallax, ParallaxLayer } from "@react-spring/parallax";
 import { forwardRef, useEffect, useRef } from "react";
 import AudioButton from "./audioButton";
 import BaliBookImage from "@/assets/images/bali-book-copy-min.png";
+import BaliFlowerImage from "@/assets/images/bali-flower-copy-min.png";
 import BranchTreeImage from "@/assets/images/branch-tree-behind-mosque-copy-min.png";
 import CloudBg from "@/assets/images/cloud2.png";
 import CloudImage from "@/assets/images/cloud-behind-mosque-copy-min.png";
@@ -218,14 +219,14 @@ export const ParallaxOpened = forwardRef<HTMLAudioElement, Props>(
     const parallaxRef = useRef<IParallax>(null);
     const params = useSearchParams();
 
-    useEffect(() => {
-      parallaxRef.current && parallaxRef.current.scrollTo(0.7);
-    }, [parallaxRef]);
+    // useEffect(() => {
+    //   parallaxRef.current && parallaxRef.current.scrollTo(0.7);
+    // }, [parallaxRef]);
 
     return (
       <>
         <AudioButton ref={ref} type="TOGGLE" onOpen={onOpen} />
-        <Parallax ref={parallaxRef} pages={4}>
+        <Parallax ref={parallaxRef} pages={3}>
           {/* <ParallaxLayer offset={0} speed={0.8}>
             <MotionWrapper
               style={{
@@ -406,16 +407,22 @@ export const ParallaxOpened = forwardRef<HTMLAudioElement, Props>(
             </MotionWrapper>
           </ParallaxLayer> */}
 
-          <ParallaxLayer speed={0.5} offset={1}>
+          <ParallaxLayer speed={0.5} offset={0}>
             <MotionWrapper
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 2 }}
+              style={{
+                height: "100%",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+              }}
             >
-              <div className=" py-5 bg-[white] w-[80%] h-[350px]  justify-self-center rounded-xl flex flex-col justify-between">
+              <div className=" py-5 bg-white/50 w-[95%] h-[30%] flex flex-col justify-between">
                 <Text
-                  variant="TITLE"
-                  customClass="text-2xl text-[#667d6f] text-center md:text-3xl"
+                  variant="BODY"
+                  customClass="text-xl text-white text-center"
                 >
                   &quot;Dan segala sesuatu Kami ciptakan berpasang-pasangan
                   agarkamu mengingat (kebesaran Allah).&quot;
@@ -428,62 +435,63 @@ export const ParallaxOpened = forwardRef<HTMLAudioElement, Props>(
           </ParallaxLayer>
           <ParallaxLayer
             speed={0.5}
-            offset={1.5}
-            factor={0.5}
-            className="flex flex-col gap-5"
+            offset={1}
+            className="flex justify-center items-center"
           >
-            <MotionWrapper
-              initial={{ x: -100 }}
-              animate={{ x: 0 }}
-              transition={{ duration: 2 }}
-            >
-              <div className="flex flex-col gap-5 px-5">
-                <Text
-                  variant="BODY"
-                  customClass="text-xl text-white justify-self-center"
-                  textAlign="LEFT"
-                >
-                  Calon Mempelai Pria
-                  <Text variant="TITLE" customClass="text-7xl" textAlign="LEFT">
+            <div className="text-white flex flex-col bg-[#62786b] w-full h-fit gap-10">
+              <Image priority alt="flower ombak" src={BaliFlowerImage} />
+              <MotionWrapper
+                initial={{ x: -100 }}
+                animate={{ x: 0 }}
+                transition={{ duration: 2 }}
+              >
+                <div className="flex flex-col gap-5 px-5">
+                  <Text variant="TITLE" customClass="text-6xl" textAlign="LEFT">
                     Muhammad
                     <br />
                     Bagas
                     <br />
                     Rinaldi
                   </Text>
-                </Text>
-                <Text customClass="text-white text-xl">
-                  Anak kedua dari Bapak Dody Rinaldi & Ibu Evi Srihandajani
-                </Text>
-              </div>
-            </MotionWrapper>
-            <MotionWrapper
-              initial={{ x: 100 }}
-              animate={{ x: 0 }}
-              transition={{ duration: 2 }}
-            >
-              <div className="flex flex-col items-end gap-5 px-5">
+                  <Text customClass="text-white text-xl">
+                    Anak kedua dari Bapak Dody Rinaldi & Ibu Evi Srihandajani
+                  </Text>
+                </div>
+              </MotionWrapper>
+              <MotionWrapper
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 2 }}
+              >
                 <Text
-                  variant="BODY"
-                  customClass="text-xl text-white  justify-self-center"
-                  textAlign="RIGHT"
+                  variant="TITLE"
+                  customClass="text-6xl justify-self-center"
                 >
-                  Calon Mempelai Wanita
+                  &
+                </Text>
+              </MotionWrapper>
+              <MotionWrapper
+                initial={{ x: 100 }}
+                animate={{ x: 0 }}
+                transition={{ duration: 2 }}
+              >
+                <div className="flex flex-col items-end gap-5 px-5">
                   <Text
                     variant="TITLE"
-                    customClass="text-7xl"
+                    customClass="text-6xl"
                     textAlign="RIGHT"
                   >
                     Putri
                     <br />
                     Handayani
                   </Text>
-                </Text>
-                <Text customClass="text-white text-xl" textAlign="RIGHT">
-                  Anak kedua dari Bapak Junaedi & Ibu Sawiyah
-                </Text>
-              </div>
-            </MotionWrapper>
+                  <Text customClass="text-white text-xl" textAlign="RIGHT">
+                    Anak kedua dari Bapak Junaedi & Ibu Sawiyah
+                  </Text>
+                </div>
+              </MotionWrapper>
+              <Image priority alt="flower ombak" src={BaliFlowerImage} />
+            </div>
           </ParallaxLayer>
 
           <ParallaxLayer
