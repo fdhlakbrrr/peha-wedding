@@ -43,9 +43,9 @@ export default function Home() {
             <source src={audio1} type="audio/mp3" />
           </audio>
           {render &&
-            // (!opened ? (
-            //   <ParallaxClosed ref={audioRef} onOpen={() => setOpened(true)} />
-            // ) : (
+            (!opened ? (
+              <ParallaxClosed ref={audioRef} onOpen={() => setOpened(true)} />
+            ) : (
               <>
                 <div className="h-[100vh] w-full relative">
                   {/* <div style={{ position: "absolute", top: 0 }}> */}
@@ -108,35 +108,7 @@ export default function Home() {
                 </div>
                 <ParallaxOpened ref={audioRef} onOpen={() => setOpened(true)} />
               </>
-            // ))
-            }
-
-          {/* {!opened ? (
-            <ParallaxClosed ref={audioRef} onOpen={() => setOpened(true)} />
-          ) : (
-            <>
-              <div className="h-[100vh] w-full bg-[red]">
-                <div>
-                  <MotionWrapper
-                    initial={{ opacity: 0, y: 50 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 2 }}
-                    motionProps={{
-                      layout: true,
-                    }}
-                  >
-                    <Image
-                      priority
-                      alt="mosque"
-                      src={MosqueImage}
-                      className="w-full opacity-[0.5]"
-                    />
-                  </MotionWrapper>
-                </div>
-              </div>
-              <ParallaxOpened ref={audioRef} onOpen={() => setOpened(true)} />
-            </>
-          )} */}
+            ))}
         </Container>
       </>
     );

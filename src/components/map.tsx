@@ -1,13 +1,10 @@
 import "mapbox-gl/dist/mapbox-gl.css";
-import Map, { Marker } from "react-map-gl";
 import { Button, Container } from "./ui";
+import Map, { Marker } from "react-map-gl";
 import Image from "next/image";
-import Link from "next/link";
 import MarkerImage from "../assets/images/location-pin.svg";
-import { useRouter } from "next/navigation";
 
 export default function MapBox() {
-  const router = useRouter();
 
   return (
     <Container align="CENTER">

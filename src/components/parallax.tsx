@@ -1,11 +1,13 @@
+import { Button, Text } from "./ui";
 import { IParallax, Parallax, ParallaxLayer } from "@react-spring/parallax";
-import { forwardRef, useEffect, useRef, useState } from "react";
+import { forwardRef, useRef, useState } from "react";
 import AudioButton from "./audioButton";
 import BaliBookImage from "@/assets/images/bali-book-copy-min.png";
 import BaliFlowerImage from "@/assets/images/bali-flower-copy-min.png";
 import BranchTreeImage from "@/assets/images/branch-tree-behind-mosque-copy-min.png";
 import CloudBg from "@/assets/images/cloud2.png";
 import CloudImage from "@/assets/images/cloud-behind-mosque-copy-min.png";
+import { Copy } from "lucide-react";
 import FlowerOmbakImage from "@/assets/images/flower-above-ombak-copy-min.png";
 import GardenImage from "@/assets/images/garden-infront-mosque-copy-min.png";
 import Image from "next/image";
@@ -16,9 +18,8 @@ import { MotionWrapper } from "@/components/animate";
 import OrnamentBackgroundImage from "@/assets/images/ornament-bg-copy-min.png";
 import OrnamentOmbakImage from "@/assets/images/ornament-ombak-copy-min.png";
 import PinusImage from "@/assets/images/pinus-behind-mosque-copy-min.png";
-import { Button, Text } from "./ui";
 import { useSearchParams } from "next/navigation";
-import { Copy } from "lucide-react";
+
 
 interface Props {
   onOpen: () => void;
@@ -225,7 +226,7 @@ export const ParallaxOpened = forwardRef<HTMLAudioElement, Props>(
     //   parallaxRef.current && parallaxRef.current.scrollTo(0.7);
     // }, [parallaxRef]);
 
-    const copyText = async (text) => {
+    const copyText = async (text: string) => {
       await navigator.clipboard.writeText(text);
 
       setCopy(true);
@@ -259,7 +260,7 @@ export const ParallaxOpened = forwardRef<HTMLAudioElement, Props>(
                 justifyContent: "center",
               }}
             >
-              <div className=" py-5 bg-[#62786b] w-[100%] h-[30%] flex flex-col justify-between">
+              <div className=" py-5 bg-[#62786b]/50 w-[100%] h-[30%] flex flex-col justify-between border-t-2 border-b-2 border-dashed">
                 <Text
                   variant="BODY"
                   customClass="text-xl text-white text-center"
@@ -347,16 +348,34 @@ export const ParallaxOpened = forwardRef<HTMLAudioElement, Props>(
               }}
             >
               <div className="flex flex-col items-center">
-                <Text variant="TITLE">Minggu, 26 Januari</Text>
-                <Text variant="TITLE" customClass="text-9xl">
-                  2025
-                </Text>
-                <Text variant="BODY" customClass="text-xl">
-                  Akad: 08.00 WIB - Selesai
-                </Text>
-                <Text variant="BODY" customClass="text-xl">
-                  Resepsi: 10.00 WIB - Selesai
-                </Text>
+                <MotionWrapper
+                  transition={{ duration: 1.5, ease: "easeIn" }}
+                  initial={{ x: -30, opacity: 0 }}
+                  animate={{ x: 0, opacity: 1 }}
+                >
+                  <Text variant="TITLE">Minggu, 26 Januari</Text>
+                </MotionWrapper>
+                <MotionWrapper
+                  transition={{ duration: 1.8, ease: "easeIn" }}
+                  initial={{ x: -30, opacity: 0 }}
+                  animate={{ x: 0, opacity: 1 }}
+                >
+                  <Text variant="TITLE" customClass="text-9xl">
+                    2025
+                  </Text>
+                </MotionWrapper>
+                <MotionWrapper
+                  transition={{ duration: 2, ease: "easeIn" }}
+                  initial={{ x: -30, opacity: 0 }}
+                  animate={{ x: 0, opacity: 1 }}
+                >
+                  <Text variant="BODY" customClass="text-xl">
+                    Akad: 08.00 WIB - Selesai
+                  </Text>
+                  <Text variant="BODY" customClass="text-xl">
+                    Resepsi: 10.00 WIB - Selesai
+                  </Text>
+                </MotionWrapper>
               </div>
               {formalMode && (
                 <div className="flex flex-col gap-5">
@@ -368,20 +387,47 @@ export const ParallaxOpened = forwardRef<HTMLAudioElement, Props>(
                     Dress Code
                   </Text>
                   <div className="flex gap-10">
-                    <div className="flex flex-col items-center">
-                      <div className="w-[100px] h-[100px] rounded-full bg-[#86A788]"></div>
-                      <Text variant="BODY">Sage green</Text>
-                    </div>
+                    <MotionWrapper
+                      initial={{ y: 30 }}
+                      animate={{ y: 0 }}
+                      transition={{
+                        bounce: 1,
+                        duration: 1.5,
+                      }}
+                    >
+                      <div className="flex flex-col items-center">
+                        <div className="w-[100px] h-[100px] rounded-full bg-[#86A788]"></div>
+                        <Text variant="BODY">Sage green</Text>
+                      </div>
+                    </MotionWrapper>
 
-                    <div className="flex flex-col items-center">
-                      <div className="w-[100px] h-[100px] rounded-full bg-[#F1E5D1]"></div>
-                      <Text variant="BODY">Cream</Text>
-                    </div>
+                    <MotionWrapper
+                      initial={{ y: 30 }}
+                      animate={{ y: 0 }}
+                      transition={{
+                        bounce: 1,
+                        duration: 2,
+                      }}
+                    >
+                      <div className="flex flex-col items-center">
+                        <div className="w-[100px] h-[100px] rounded-full bg-[#F1E5D1]"></div>
+                        <Text variant="BODY">Cream</Text>
+                      </div>
+                    </MotionWrapper>
 
-                    <div className="flex flex-col items-center">
-                      <div className="w-[100px] h-[100px] rounded-full bg-[#A79277]"></div>
-                      <Text variant="BODY">Coksu</Text>
-                    </div>
+                    <MotionWrapper
+                      initial={{ y: 30 }}
+                      animate={{ y: 0 }}
+                      transition={{
+                        bounce: 1,
+                        duration: 2.5,
+                      }}
+                    >
+                      <div className="flex flex-col items-center">
+                        <div className="w-[100px] h-[100px] rounded-full bg-[#A79277]"></div>
+                        <Text variant="BODY">Coksu</Text>
+                      </div>
+                    </MotionWrapper>
                   </div>
                 </div>
               )}
@@ -398,7 +444,7 @@ export const ParallaxOpened = forwardRef<HTMLAudioElement, Props>(
               animate={{ opacity: 1 }}
               transition={{ duration: 2 }}
             >
-              <div className="address w-full flex flex-col items-center bg-[#62796b]">
+              <div className="address w-full flex flex-col items-center bg-[#62796b] border-t-2 border-b-2 border-dotted">
                 <Text variant="TITLE" customClass="text-white text-5xl">
                   Alamat
                 </Text>
@@ -409,7 +455,7 @@ export const ParallaxOpened = forwardRef<HTMLAudioElement, Props>(
 
           <ParallaxLayer offset={4} speed={0.5}>
             <MotionWrapper>
-              <div className="w-full h-[300px] flex flex-col gap-5 justify-center bg-[#62796f]">
+              <div className="w-full h-[300px] flex flex-col gap-5 justify-center bg-[#62796f]/50 border-t-2 border-b-2 border-dashed">
                 <Text
                   variant="TITLE"
                   customClass="text-white text-3xl"
@@ -427,7 +473,13 @@ export const ParallaxOpened = forwardRef<HTMLAudioElement, Props>(
             </MotionWrapper>
           </ParallaxLayer>
           <ParallaxLayer offset={5} speed={0.5}>
-            <div className={formalMode ? "bg-[#62786b] h-full flex flex-col items-center justify-center" : "bg-[#62786b] h-full flex flex-col items-center justify-between"}>
+            <div
+              className={
+                formalMode
+                  ? "bg-[#62786b] h-full flex flex-col items-center justify-center"
+                  : "bg-[#62786b] h-full flex flex-col items-center justify-between"
+              }
+            >
               {!formalMode && (
                 <div className="flex flex-col items-center gap-5">
                   <Text variant="TITLE" customClass="text-white">
