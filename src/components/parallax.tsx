@@ -419,7 +419,7 @@ export const ParallaxOpened = forwardRef<HTMLAudioElement, Props>(
                 justifyContent: "center",
               }}
             >
-              <div className=" py-5 bg-white/50 w-[95%] h-[30%] flex flex-col justify-between">
+              <div className=" py-5 bg-[#62786b] w-[100%] h-[30%] flex flex-col justify-between">
                 <Text
                   variant="BODY"
                   customClass="text-xl text-white text-center"
@@ -427,7 +427,7 @@ export const ParallaxOpened = forwardRef<HTMLAudioElement, Props>(
                   &quot;Dan segala sesuatu Kami ciptakan berpasang-pasangan
                   agarkamu mengingat (kebesaran Allah).&quot;
                 </Text>
-                <Text customClass="text-xl text-center">
+                <Text customClass="text-xl text-white text-center">
                   Qs. Adz-Dzariyat: 21
                 </Text>
               </div>
@@ -500,21 +500,52 @@ export const ParallaxOpened = forwardRef<HTMLAudioElement, Props>(
             factor={0.3}
             className="flex items-center gap-5 text-white"
           >
-            <div className="flex flex-col w-full h-[100%] items-center">
-              <Text variant="TITLE">Minggu, 26 Januari</Text>
-              <Text variant="TITLE" customClass="text-9xl">
-                2025
-              </Text>
-              <Text variant="BODY" customClass="text-xl">
-                Akad: 08.00 WIB - Selesai
-              </Text>
-              <Text variant="BODY" customClass="text-xl">
-                Resepsi: 10.00 WIB - Selesai
-              </Text>
-              {params.get("ver") === "2" && (
-                <Text variant="BODY" customClass="text-xl" textAlign="CENTER">
-                  Dress Code: Setelan Berwarna Sage / Cream
+            <div
+              className="flex flex-col w-full py-5 items-center address bg-[#62786b] gap-10"
+              style={{
+                backgroundRepeat:
+                  params.get("ver") === "2" ? "repeat" : "no-repeat",
+                backgroundSize: params.get("ver") === "2" ? "contain" : "cover"
+              }}
+            >
+              <div className="flex flex-col items-center">
+                <Text variant="TITLE">Minggu, 26 Januari</Text>
+                <Text variant="TITLE" customClass="text-9xl">
+                  2025
                 </Text>
+                <Text variant="BODY" customClass="text-xl">
+                  Akad: 08.00 WIB - Selesai
+                </Text>
+                <Text variant="BODY" customClass="text-xl">
+                  Resepsi: 10.00 WIB - Selesai
+                </Text>
+              </div>
+              {params.get("ver") === "2" && (
+                <div className="flex flex-col gap-5">
+                  <Text
+                    variant="TITLE"
+                    customClass="text-2xl"
+                    textAlign="CENTER"
+                  >
+                    Dress Code
+                  </Text>
+                  <div className="flex gap-10">
+                    <div className="flex flex-col items-center">
+                      <div className="w-[100px] h-[100px] rounded-full bg-[#86A788]"></div>
+                      <Text variant="BODY">Sage green</Text>
+                    </div>
+
+                    <div className="flex flex-col items-center">
+                      <div className="w-[100px] h-[100px] rounded-full bg-[#F1E5D1]"></div>
+                      <Text variant="BODY">Cream</Text>
+                    </div>
+
+                    <div className="flex flex-col items-center">
+                      <div className="w-[100px] h-[100px] rounded-full bg-[#A79277]"></div>
+                      <Text variant="BODY">Coksu</Text>
+                    </div>
+                  </div>
+                </div>
               )}
             </div>
           </ParallaxLayer>

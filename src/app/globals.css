@@ -69,7 +69,11 @@ body {
   background-image: url("../assets/images/background.png");
   background-repeat: no-repeat;
   background-size: cover;
-  padding: 0
+  padding: 0;
+}
+
+.address {
+  background-image: url("../assets/images/side-min.png");
 }
 
 @layer base {
