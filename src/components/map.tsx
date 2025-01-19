@@ -1,11 +1,11 @@
 import "mapbox-gl/dist/mapbox-gl.css";
+import { Button, Container } from "./ui";
 import Map, { Marker } from "react-map-gl";
-import { Container } from "./ui";
 import Image from "next/image";
-import Link from "next/link";
 import MarkerImage from "../assets/images/location-pin.svg";
 
 export default function MapBox() {
+
   return (
     <Container align="CENTER">
       <Map
@@ -26,13 +26,17 @@ export default function MapBox() {
           <Image alt="marker" src={MarkerImage} width={25} height={25} />
         </Marker>
       </Map>
-      <Link
-        href="https://maps.google.com/?q=-6.409605,106.710373"
-        target="_blank"
-        className="text-[#024b95] underline"
+      <Button
+        onClick={() =>
+          window.open(
+            "https://maps.google.com/?q=-6.409605,106.710373",
+            "blank"
+          )
+        }
+        className="bg-[#9daa97] hover:bg-[#9daa97]"
       >
-        Buka Dengan Google Maps
-      </Link>
+        Lihat Lokasi
+      </Button>
     </Container>
   );
 }

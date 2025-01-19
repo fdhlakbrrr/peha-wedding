@@ -6,7 +6,7 @@ export const useMotionSource = () => {
   const matchMedia = React.useMemo(() => {
     if (typeof window !== "undefined") {
       return {
-        sm: window.matchMedia("(min-width: 500px)"),
+        sm: window.matchMedia("(max-width: 375px)"),
         md: window.matchMedia("(min-width: 850px)"),
         lg: window.matchMedia("(min-width: 1024px)"),
         xl: window.matchMedia("(min-width: 1280px)"),

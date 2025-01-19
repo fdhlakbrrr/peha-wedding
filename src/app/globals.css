@@ -69,8 +69,17 @@ body {
   background-image: url("../assets/images/background.png");
   background-repeat: no-repeat;
   background-size: cover;
-  padding: 0
+  padding: 0;
 }
+
+.date {
+  background-image: url("../assets/images/side-min.png");
+}
+
+/* .address {
+  background-image: url("../assets/images/address-bg.svg");
+  background-size: cover;
+} */
 
 @layer base {
   * {
