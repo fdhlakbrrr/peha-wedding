@@ -17,9 +17,10 @@ interface Props {
 
 export const ParallaxClosed = forwardRef<HTMLAudioElement, Props>(
   function ParallaxClosed({ onOpen }: Props, ref) {
+
     return (
       <MainElements>
-        <ParallaxLayer offset={0.35}>
+        <ParallaxLayer offset={0.45} className="z-[99999]">
           <MotionWrapper
             style={{
               width: "100%",
@@ -37,13 +38,20 @@ export const ParallaxClosed = forwardRef<HTMLAudioElement, Props>(
             <div className="flex flex-col items-center gap-1 md:mt-10">
               <Text
                 variant="TITLE"
-                customClass="text-xl text-white md:text-3xl"
+                customClass="text-2xl text-white"
                 textAlign="CENTER"
               >
-                Walimatul &apos;Urs <br /> Bagas & Putri
+                Walimatul &apos;Urs
               </Text>
-              <Image alt="putri wedding" src={PutriLogo} width={120} />
-              <AudioButton ref={ref} type="OPEN" onOpen={onOpen} />
+              <Text
+                variant="TITLE"
+                customClass="text-xl text-white"
+                textAlign="CENTER"
+              >
+                Bagas & Putri
+              </Text>
+                <Image alt="putri wedding" src={PutriLogo} width={120} />
+                <AudioButton ref={ref} type="OPEN" onOpen={onOpen} />
             </div>
           </MotionWrapper>
         </ParallaxLayer>
@@ -122,7 +130,7 @@ export const ParallaxOpened = forwardRef<HTMLAudioElement, Props>(
                 animate={{ y: 0 }}
                 transition={{ duration: 1.3 }}
               >
-                <Text variant="TITLE" textAlign="LEFT" customClass="text-xl">
+                <Text variant="TITLE" textAlign="LEFT" customClass="text-base">
                   Dengan memohon rahmat dan ridho Allah &apos;Azza wa Jalla,
                   kami mengundang Bapak/Ibu/Saudara/i, untuk menghadiri acara
                   pernikahan kami
@@ -301,7 +309,7 @@ export const ParallaxOpened = forwardRef<HTMLAudioElement, Props>(
 
           <ParallaxLayer offset={4} speed={0.5}>
             <MotionWrapper>
-              <div className="w-full h-[300px] flex flex-col gap-5 justify-between bg-[#62796f]/50 border-t-2 border-b-2 border-dashed">
+              <div className="w-full h-[300px] px-5 flex flex-col gap-5 justify-between bg-[#62796f]/50 border-t-2 border-b-2 border-dashed">
                 <Text
                   variant="TITLE"
                   customClass="text-white text-xl"
@@ -337,7 +345,10 @@ export const ParallaxOpened = forwardRef<HTMLAudioElement, Props>(
             >
               {!formalMode && (
                 <div className="flex flex-col items-center gap-5 px-5">
-                  <Text variant="TITLE" customClass="text-white text-xl md:text-3xl">
+                  <Text
+                    variant="TITLE"
+                    customClass="text-white text-xl md:text-3xl"
+                  >
                     Wedding Gift
                   </Text>
                   <Text variant="BODY" customClass="text-white text-center">
@@ -400,8 +411,6 @@ export const ParallaxOpened = forwardRef<HTMLAudioElement, Props>(
             </MainElements>
           </ParallaxLayer>
         </Parallax>
-
-        
       </>
     );
   }

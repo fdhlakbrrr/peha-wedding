@@ -1,11 +1,11 @@
-import { Cormorant_Garamond ,Noto_Sans, Nunito } from "next/font/google";
+import { Cormorant_Garamond ,Noto_Sans, Nunito, Poppins } from "next/font/google";
 import { Fragment, memo } from "react";
 import type { TextAlign, TextCase, TextVariant } from "@/types";
 import type { ReactNode } from "react";
 import { useText } from "@/hooks/ui";
 
-const playfair = Noto_Sans({ weight: "500", subsets: ["latin"] });
-const lato = Nunito({ weight: "400", subsets: ["latin"] });
+const playfair = Poppins({ weight: "500", subsets: ["latin"] });
+const lato = Poppins({ weight: "400", subsets: ["latin"] });
 const cormorand = Cormorant_Garamond({ weight: "500", subsets: ["latin"] });
 
 interface Props {
