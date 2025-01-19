@@ -1,4 +1,4 @@
-import { Cormorant_Garamond ,Noto_Sans, Nunito, Poppins } from "next/font/google";
+import { Cormorant_Garamond, Poppins } from "next/font/google";
 import { Fragment, memo } from "react";
 import type { TextAlign, TextCase, TextVariant } from "@/types";
 import type { ReactNode } from "react";
