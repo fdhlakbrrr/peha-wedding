@@ -2,24 +2,14 @@ import { Button, Text } from "./ui";
 import { IParallax, Parallax, ParallaxLayer } from "@react-spring/parallax";
 import { forwardRef, useRef, useState } from "react";
 import AudioButton from "./audioButton";
-import BaliBookImage from "@/assets/images/bali-book-copy-min.png";
 import BaliFlowerImage from "@/assets/images/bali-flower-copy-min.png";
-import BranchTreeImage from "@/assets/images/branch-tree-behind-mosque-copy-min.png";
-import CloudBg from "@/assets/images/cloud2.png";
-import CloudImage from "@/assets/images/cloud-behind-mosque-copy-min.png";
 import { Copy } from "lucide-react";
-import FlowerOmbakImage from "@/assets/images/flower-above-ombak-copy-min.png";
-import GardenImage from "@/assets/images/garden-infront-mosque-copy-min.png";
 import Image from "next/image";
-import LeafTreeImage from "@/assets/images/leaf-tree-behind-mosque-copy-min.png";
+import MainElements from "./mainElements";
 import Map from "@/components/map";
-import MosqueImage from "@/assets/images/mosque-copy-min.png";
 import { MotionWrapper } from "@/components/animate";
-import OrnamentBackgroundImage from "@/assets/images/ornament-bg-copy-min.png";
-import OrnamentOmbakImage from "@/assets/images/ornament-ombak-copy-min.png";
-import PinusImage from "@/assets/images/pinus-behind-mosque-copy-min.png";
+import PutriLogo from "@/assets/images/putri_logo.png";
 import { useSearchParams } from "next/navigation";
-
 
 interface Props {
   onOpen: () => void;
@@ -28,104 +18,8 @@ interface Props {
 export const ParallaxClosed = forwardRef<HTMLAudioElement, Props>(
   function ParallaxClosed({ onOpen }: Props, ref) {
     return (
-      <Parallax pages={1}>
-        <ParallaxLayer offset={0} speed={0.8}>
-          <MotionWrapper
-            style={{
-              x: -300,
-            }}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 0.5 }}
-            transition={{ duration: 1 }}
-            motionProps={{
-              layout: true,
-            }}
-            afterComplete={{
-              initial: { x: -300 },
-              animate: { x: 300 },
-              transition: {
-                repeat: Infinity,
-                duration: 7,
-                repeatType: "loop",
-              },
-            }}
-          >
-            <Image priority alt="cloud bg" src={CloudBg} />
-          </MotionWrapper>
-        </ParallaxLayer>
-        <ParallaxLayer offset={0} speed={0.8}>
-          <MotionWrapper
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 2 }}
-            motionProps={{
-              layout: true,
-            }}
-          >
-            <Image priority alt="cloud" src={CloudImage} />
-          </MotionWrapper>
-        </ParallaxLayer>
-        <ParallaxLayer offset={0}>
-          <MotionWrapper
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 2 }}
-            motionProps={{
-              layout: true,
-            }}
-          >
-            <Image priority alt="leaf tree" src={LeafTreeImage} />
-          </MotionWrapper>
-        </ParallaxLayer>
-        <ParallaxLayer offset={0}>
-          <MotionWrapper
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 2 }}
-            motionProps={{
-              layout: true,
-            }}
-          >
-            <Image priority alt="branch tree" src={BranchTreeImage} />
-          </MotionWrapper>
-        </ParallaxLayer>
-        <ParallaxLayer offset={0.12}>
-          <MotionWrapper
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 2 }}
-            motionProps={{
-              layout: true,
-            }}
-          >
-            <Image priority alt="pinus tree" src={PinusImage} />
-          </MotionWrapper>
-        </ParallaxLayer>
-        <ParallaxLayer offset={0.15}>
-          <MotionWrapper
-            initial={{ opacity: 0, y: 50 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 2 }}
-            motionProps={{
-              layout: true,
-            }}
-          >
-            <Image priority alt="mosque" src={MosqueImage} />
-          </MotionWrapper>
-        </ParallaxLayer>
-        <ParallaxLayer offset={0.28}>
-          <MotionWrapper
-            initial={{ opacity: 0, y: 50 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 2 }}
-            motionProps={{
-              layout: true,
-            }}
-          >
-            <Image priority alt="garden" src={GardenImage} />
-          </MotionWrapper>
-        </ParallaxLayer>
-        <ParallaxLayer offset={0.5}>
+      <MainElements>
+        <ParallaxLayer offset={0.35}>
           <MotionWrapper
             style={{
               width: "100%",
@@ -140,78 +34,20 @@ export const ParallaxClosed = forwardRef<HTMLAudioElement, Props>(
               layout: true,
             }}
           >
-            <Text
-              variant="TITLE"
-              customClass="text-5xl text-white justify-self-center"
-            >
-              Walimatul &apos;Urs
-            </Text>
-            <div className="justify-self-center">
+            <div className="flex flex-col items-center gap-1 md:mt-10">
+              <Text
+                variant="TITLE"
+                customClass="text-xl text-white md:text-3xl"
+                textAlign="CENTER"
+              >
+                Walimatul &apos;Urs <br /> Bagas & Putri
+              </Text>
+              <Image alt="putri wedding" src={PutriLogo} width={120} />
               <AudioButton ref={ref} type="OPEN" onOpen={onOpen} />
             </div>
           </MotionWrapper>
         </ParallaxLayer>
-
-        <ParallaxLayer offset={0.75} speed={1.8}>
-          <MotionWrapper
-            initial={{ opacity: 0, y: 50 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 2 }}
-            motionProps={{
-              layout: true,
-            }}
-          >
-            <Image alt="ornament background" src={OrnamentBackgroundImage} />
-          </MotionWrapper>
-        </ParallaxLayer>
-        <ParallaxLayer offset={0.85} speed={2}>
-          <MotionWrapper
-            initial={{ opacity: 0, y: 50 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 2 }}
-            motionProps={{
-              layout: true,
-            }}
-          >
-            <Image priority alt="ornament ombak" src={OrnamentOmbakImage} />
-          </MotionWrapper>
-        </ParallaxLayer>
-        <ParallaxLayer offset={0.85} speed={2}>
-          <MotionWrapper
-            initial={{ opacity: 0, y: 50 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 2 }}
-            motionProps={{
-              layout: true,
-            }}
-            afterComplete={{
-              initial: { y: 0 },
-              animate: { y: 5 },
-              transition: {
-                repeat: Infinity,
-                repeatType: "reverse",
-                duration: 2,
-              },
-            }}
-          >
-            <div className="w-[35%] justify-self-center">
-              <Image priority alt="flower ombak" src={FlowerOmbakImage} />
-            </div>
-          </MotionWrapper>
-        </ParallaxLayer>
-        <ParallaxLayer offset={0.7} speed={2}>
-          <MotionWrapper
-            initial={{ opacity: 0, y: 50 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 2 }}
-            motionProps={{
-              layout: true,
-            }}
-          >
-            <Image priority alt="bali book" src={BaliBookImage} />
-          </MotionWrapper>
-        </ParallaxLayer>
-      </Parallax>
+      </MainElements>
     );
   }
 );
@@ -247,7 +83,7 @@ export const ParallaxOpened = forwardRef<HTMLAudioElement, Props>(
     return (
       <>
         <AudioButton ref={ref} type="TOGGLE" onOpen={onOpen} />
-        <Parallax ref={parallaxRef} pages={6}>
+        <Parallax ref={parallaxRef} pages={7}>
           <ParallaxLayer speed={0.5} offset={0}>
             <MotionWrapper
               initial={{ opacity: 0 }}
@@ -279,15 +115,26 @@ export const ParallaxOpened = forwardRef<HTMLAudioElement, Props>(
             offset={1}
             className="flex justify-center items-center"
           >
-            <div className="text-white flex flex-col bg-[#62786b] w-full h-fit gap-10">
+            <div className="text-white flex flex-col bg-[#62786b] w-full h-fit gap-10 px-5">
               <Image priority alt="flower ombak" src={BaliFlowerImage} />
+              <MotionWrapper
+                initial={{ y: 100 }}
+                animate={{ y: 0 }}
+                transition={{ duration: 1.3 }}
+              >
+                <Text variant="TITLE" textAlign="LEFT" customClass="text-xl">
+                  Dengan memohon rahmat dan ridho Allah &apos;Azza wa Jalla,
+                  kami mengundang Bapak/Ibu/Saudara/i, untuk menghadiri acara
+                  pernikahan kami
+                </Text>
+              </MotionWrapper>
               <MotionWrapper
                 initial={{ x: -100 }}
                 animate={{ x: 0 }}
                 transition={{ duration: 2 }}
               >
-                <div className="flex flex-col gap-5 px-5">
-                  <Text variant="TITLE" customClass="text-6xl" textAlign="LEFT">
+                <div className="flex flex-col gap-5">
+                  <Text variant="NAME" customClass="text-5xl" textAlign="LEFT">
                     Muhammad
                     <br />
                     Bagas
@@ -295,7 +142,7 @@ export const ParallaxOpened = forwardRef<HTMLAudioElement, Props>(
                     Rinaldi
                   </Text>
                   <Text customClass="text-white text-xl">
-                    Anak kedua dari Bapak Dody Rinaldi & Ibu Evi Srihandajani
+                    Putra kedua dari Bapak Dody Rinaldi & Ibu Evi Srihandajani
                   </Text>
                 </div>
               </MotionWrapper>
@@ -304,10 +151,7 @@ export const ParallaxOpened = forwardRef<HTMLAudioElement, Props>(
                 animate={{ opacity: 1 }}
                 transition={{ duration: 2 }}
               >
-                <Text
-                  variant="TITLE"
-                  customClass="text-6xl justify-self-center"
-                >
+                <Text variant="TITLE" customClass="text-6xl" textAlign="CENTER">
                   &
                 </Text>
               </MotionWrapper>
@@ -316,18 +160,14 @@ export const ParallaxOpened = forwardRef<HTMLAudioElement, Props>(
                 animate={{ x: 0 }}
                 transition={{ duration: 2 }}
               >
-                <div className="flex flex-col items-end gap-5 px-5">
-                  <Text
-                    variant="TITLE"
-                    customClass="text-6xl"
-                    textAlign="RIGHT"
-                  >
+                <div className="flex flex-col items-end gap-5">
+                  <Text variant="NAME" customClass="text-5xl" textAlign="RIGHT">
                     Putri
                     <br />
                     Handayani
                   </Text>
                   <Text customClass="text-white text-xl" textAlign="RIGHT">
-                    Anak kedua dari Bapak Junaedi & Ibu Sawiyah
+                    Putri kedua dari Bapak Junaedi & Ibu Sawiyah
                   </Text>
                 </div>
               </MotionWrapper>
@@ -353,7 +193,9 @@ export const ParallaxOpened = forwardRef<HTMLAudioElement, Props>(
                   initial={{ x: -30, opacity: 0 }}
                   animate={{ x: 0, opacity: 1 }}
                 >
-                  <Text variant="TITLE" customClass="text-xl">Minggu, 26 Januari</Text>
+                  <Text variant="TITLE" customClass="text-xl">
+                    Minggu, 26 Januari
+                  </Text>
                 </MotionWrapper>
                 <MotionWrapper
                   transition={{ duration: 1.8, ease: "easeIn" }}
@@ -373,7 +215,7 @@ export const ParallaxOpened = forwardRef<HTMLAudioElement, Props>(
                     Akad: 08.00 WIB - Selesai
                   </Text>
                   <Text variant="BODY" customClass="text-xl">
-                    Resepsi: 10.00 WIB - Selesai
+                    Resepsi: 11.00 WIB - Selesai
                   </Text>
                 </MotionWrapper>
               </div>
@@ -397,7 +239,11 @@ export const ParallaxOpened = forwardRef<HTMLAudioElement, Props>(
                     >
                       <div className="flex flex-col items-center">
                         <div className="w-[50px] h-[50px] rounded-full bg-[#86A788]"></div>
-                        <Text variant="BODY">Sage<br/>green</Text>
+                        <Text variant="BODY">
+                          Sage
+                          <br />
+                          green
+                        </Text>
                       </div>
                     </MotionWrapper>
 
@@ -445,9 +291,9 @@ export const ParallaxOpened = forwardRef<HTMLAudioElement, Props>(
               transition={{ duration: 2 }}
             >
               <div className="address w-full flex flex-col items-center bg-[#62796b] border-t-2 border-b-2 border-dotted">
-                <Text variant="TITLE" customClass="text-white text-5xl">
+                {/* <Text variant="TITLE" customClass="text-white text-5xl">
                   Alamat
-                </Text>
+                </Text> */}
                 <Map />
               </div>
             </MotionWrapper>
@@ -455,24 +301,33 @@ export const ParallaxOpened = forwardRef<HTMLAudioElement, Props>(
 
           <ParallaxLayer offset={4} speed={0.5}>
             <MotionWrapper>
-              <div className="w-full h-[300px] flex flex-col gap-5 justify-center bg-[#62796f]/50 border-t-2 border-b-2 border-dashed">
+              <div className="w-full h-[300px] flex flex-col gap-5 justify-between bg-[#62796f]/50 border-t-2 border-b-2 border-dashed">
                 <Text
                   variant="TITLE"
-                  customClass="text-white text-3xl"
+                  customClass="text-white text-xl"
                   textAlign="CENTER"
                 >
-                  بَارَكَ اللَّهُ لَكَ وَبَارَكَ عَلَيْكَ وَ جَمَعَ بَيْنَكُمَا
-                  فِي خَيْرٍ
+                  Doa untuk pengantin
                 </Text>
-                <Text customClass="text-white text-5xl" textAlign="CENTER">
-                  &quot;Semoga Allah memberkahi engkau di waktu lapang maupun di
-                  waktu sempit, dan semoga Allah (senantiasa) mengumpulkan
-                  kalian berdua dalam kebaikan.&quot; (HR Abu Dawud)
-                </Text>
+                <div className="flex flex-col gap-5">
+                  <Text
+                    variant="TITLE"
+                    customClass="text-white text-3xl"
+                    textAlign="CENTER"
+                  >
+                    بَارَكَ اللَّهُ لَكَ وَبَارَكَ عَلَيْكَ وَ جَمَعَ
+                    بَيْنَكُمَا فِي خَيْرٍ
+                  </Text>
+                  <Text customClass="text-white text-5xl" textAlign="CENTER">
+                    &quot;Semoga Allah memberkahi engkau di waktu lapang maupun
+                    di waktu sempit, dan semoga Allah (senantiasa) mengumpulkan
+                    kalian berdua dalam kebaikan.&quot; (HR Abu Dawud)
+                  </Text>
+                </div>
               </div>
             </MotionWrapper>
           </ParallaxLayer>
-          <ParallaxLayer offset={5} speed={0.5}>
+          <ParallaxLayer offset={5} speed={0.5} factor={0.8}>
             <div
               className={
                 formalMode
@@ -481,21 +336,21 @@ export const ParallaxOpened = forwardRef<HTMLAudioElement, Props>(
               }
             >
               {!formalMode && (
-                <div className="flex flex-col items-center gap-5">
-                  <Text variant="TITLE" customClass="text-white">
-                    Angpao
+                <div className="flex flex-col items-center gap-5 px-5">
+                  <Text variant="TITLE" customClass="text-white text-xl md:text-3xl">
+                    Wedding Gift
                   </Text>
                   <Text variant="BODY" customClass="text-white text-center">
-                    Apabila berkenan, Bapak/Ibu/Saudara/i dapat memberikan doa
+                    Apabila berkenan, Bapak/I/Saudara/i dapat memberikan doa
                     restu serta tanda kasih melalui transfer ke rekening
                     berikut:
                   </Text>
                   <div className="flex flex-col items-center">
-                    <Text variant="TITLE" customClass="text-xl text-white">
+                    <Text variant="BODY" customClass="text-xl text-white">
                       Bank BSI
                     </Text>
                     <div className="flex flex-col items-center justify-center gap-5 text-white cursor-pointer">
-                      <Text variant="TITLE" customClass="text-xl">
+                      <Text variant="BODY" customClass="text-xl">
                         7202949422 a/n Putri Handayani
                       </Text>
                       <Button
@@ -509,11 +364,11 @@ export const ParallaxOpened = forwardRef<HTMLAudioElement, Props>(
                   </div>
                 </div>
               )}
-              <div className="flex flex-col items-center mb-10">
+              <div className="flex flex-col items-center">
                 <MotionWrapper
                   style={{ padding: "10px" }}
                   initial={{ opacity: 0, y: 10 }}
-                  animate={{ y: 0 }}
+                  animate={{ y: 0, opacity: 1 }}
                   transition={{ duration: 2 }}
                 >
                   <Text customClass="text-white text-5xl" textAlign="CENTER">
@@ -522,6 +377,12 @@ export const ParallaxOpened = forwardRef<HTMLAudioElement, Props>(
                     doa restu kepada kami
                   </Text>
                 </MotionWrapper>
+              </div>
+            </div>
+          </ParallaxLayer>
+          <ParallaxLayer offset={6} speed={0.5}>
+            <MainElements>
+              <ParallaxLayer offset={0.5}>
                 <MotionWrapper
                   initial={{ y: 10 }}
                   animate={{ y: 0 }}
@@ -532,35 +393,15 @@ export const ParallaxOpened = forwardRef<HTMLAudioElement, Props>(
                     customClass="text-white text-xl"
                     textAlign="CENTER"
                   >
-                    - Jazakumullahu Khairan Katsiran -
+                    Jazakumullahu Khairan Katsiran
                   </Text>
                 </MotionWrapper>
-              </div>
-            </div>
+              </ParallaxLayer>
+            </MainElements>
           </ParallaxLayer>
-          {/* <ParallaxLayer
-            offset={4}
-            speed={0.5}
-            className="bg-[#62796f] flex items-center justify-content-center"
-          >
-            <MotionWrapper
-              style={{
-                padding: "10px",
-                display: "flex",
-                width: "100%",
-                justifyContent: "center",
-              }}
-            >
-              <Text
-                variant="TITLE"
-                customClass="text-white text-5xl"
-                textAlign="CENTER"
-              >
-                - Jazakumullahu Khairan Katsiran -
-              </Text>
-            </MotionWrapper>
-          </ParallaxLayer> */}
         </Parallax>
+
+        
       </>
     );
   }

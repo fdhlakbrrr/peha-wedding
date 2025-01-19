@@ -1,11 +1,12 @@
 import { Fragment, memo } from "react";
-import { Noto_Sans, Nunito } from "next/font/google";
+import { Cormorant_Garamond ,Noto_Sans, Nunito } from "next/font/google";
 import type { TextAlign, TextCase, TextVariant } from "@/types";
 import type { ReactNode } from "react";
 import { useText } from "@/hooks/ui";
 
 const playfair = Noto_Sans({ weight: "500", subsets: ["latin"] });
 const lato = Nunito({ weight: "400", subsets: ["latin"] });
+const cormorand = Cormorant_Garamond({ weight: "500", subsets: ["latin"] });
 
 interface Props {
   variant?: TextVariant;
@@ -49,6 +50,19 @@ export const Text = memo(function Text({
           className={`text-4xl ${getTextCaseClassName(
             textCase
           )} ${getTextAlignClassName(textAlign)} ${playfair.className} ${customClass}`}
+        >
+          {children}
+        </h1>
+      </Fragment>
+    );
+  }
+  if (variant === "NAME") {
+    return (
+      <Fragment>
+        <h1
+          className={`text-4xl ${getTextCaseClassName(
+            textCase
+          )} ${getTextAlignClassName(textAlign)} ${cormorand.className} ${customClass}`}
         >
           {children}
         </h1>
