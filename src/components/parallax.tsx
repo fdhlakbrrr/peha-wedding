@@ -90,7 +90,7 @@ export const ParallaxOpened = forwardRef<HTMLAudioElement, Props>(
     return (
       <>
         <AudioButton ref={ref} type="TOGGLE" onOpen={onOpen} />
-        <Parallax ref={parallaxRef} pages={7}>
+        <Parallax ref={parallaxRef} pages={!formalMode ? 7 : 6}>
           <ParallaxLayer speed={0.5} offset={0}>
             <MotionWrapper
               initial={{ opacity: 0 }}
@@ -338,57 +338,40 @@ export const ParallaxOpened = forwardRef<HTMLAudioElement, Props>(
               </div>
             </MotionWrapper>
           </ParallaxLayer>
-          <ParallaxLayer offset={5} speed={0.5}>
-            <div className="bg-[#62786b] h-fit flex flex-col items-center justify-center gap-10">
-              {!formalMode && (
-                <div className="flex flex-col items-center gap-5 px-5">
-                  <Text
-                    variant="TITLE"
-                    customClass="text-white text-xl md:text-3xl"
-                  >
+          {!formalMode ? (
+            <ParallaxLayer offset={5} speed={0.5}>
+              <div className="bg-[#62786b] h-fit flex flex-col items-start justify-center gap-10 p-5 border-l-[10px] border-[#d3ccac]">
+                <div className="flex flex-col gap-2">
+                  <Text variant="TITLE" customClass="text-white text-3xl">
                     Wedding Gift
                   </Text>
-                  <Text variant="BODY" customClass="text-white text-center">
+                  <Text variant="BODY" customClass="text-white" textAlign="LEFT">
                     Apabila berkenan, Bapak/I/Saudara/i dapat memberikan doa
                     restu serta tanda kasih melalui transfer ke rekening
                     berikut:
                   </Text>
-                  <div className="flex flex-col items-center">
-                    <Text variant="BODY" customClass="text-xl text-white">
-                      Bank BSI
+                </div>
+                <div className="flex flex-col">
+                  <Text variant="BODY" customClass="text-xl text-white">
+                    Bank BSI
+                  </Text>
+                  <div className="flex flex-col items-start justify-center gap-5 text-white cursor-pointer">
+                    <Text variant="BODY" customClass="text-xl">
+                      7202949422 a/n Putri Handayani
                     </Text>
-                    <div className="flex flex-col items-center justify-center gap-5 text-white cursor-pointer">
-                      <Text variant="BODY" customClass="text-xl">
-                        7202949422 a/n Putri Handayani
-                      </Text>
-                      <Button
-                        onClick={() => copyText("7202949422")}
-                        className="bg-transparent hover:bg-transparent border border-white flex items-center gap-2"
-                      >
-                        {copy ? "" : <Copy />}
-                        {copy ? "Disalin!" : "Salin"}
-                      </Button>
-                    </div>
+                    <Button
+                      onClick={() => copyText("7202949422")}
+                      className="bg-transparent hover:bg-transparent border border-white flex items-center gap-2"
+                    >
+                      {copy ? "" : <Copy />}
+                      {copy ? "Disalin!" : "Salin"}
+                    </Button>
                   </div>
                 </div>
-              )}
-              <div className="flex flex-col items-center">
-                <MotionWrapper
-                  style={{ padding: "10px" }}
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ y: 0, opacity: 1 }}
-                  transition={{ duration: 2 }}
-                >
-                  <Text customClass="text-white text-5xl" textAlign="CENTER">
-                    Merupakan suatu kehormatan dan kebahagiaan bagi kami,
-                    apabila Bapak/Ibu/Saudara/i berkenan hadir dan memberikan
-                    doa restu kepada kami
-                  </Text>
-                </MotionWrapper>
               </div>
-            </div>
-          </ParallaxLayer>
-          <ParallaxLayer offset={6} speed={0.5}>
+            </ParallaxLayer>
+          ) : <></>}
+          <ParallaxLayer offset={!formalMode ? 6 : 5} speed={0.5}>
             <MainElements>
               <ParallaxLayer offset={0.5}>
                 <MotionWrapper
@@ -396,13 +379,21 @@ export const ParallaxOpened = forwardRef<HTMLAudioElement, Props>(
                   animate={{ y: 0 }}
                   transition={{ duration: 3 }}
                 >
-                  <Text
-                    variant="TITLE"
-                    customClass="text-white text-xl"
-                    textAlign="CENTER"
-                  >
-                    Jazakumullahu Khairan Katsiran
-                  </Text>
+                  <div className="flex flex-col items-center gap-10">
+                    <Text customClass="text-white text-5xl" textAlign="CENTER">
+                      Merupakan suatu kehormatan dan kebahagiaan bagi kami,
+                      apabila Bapak/Ibu/Saudara/i berkenan hadir dan memberikan
+                      doa restu kepada kami
+                    </Text>
+
+                    <Text
+                      variant="TITLE"
+                      customClass="text-white text-xl"
+                      textAlign="CENTER"
+                    >
+                      Jazakumullahu Khairan Katsiran
+                    </Text>
+                  </div>
                 </MotionWrapper>
               </ParallaxLayer>
             </MainElements>
