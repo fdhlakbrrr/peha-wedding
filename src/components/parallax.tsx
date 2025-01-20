@@ -8,6 +8,7 @@ import Image from "next/image";
 import MainElements from "./mainElements";
 import Map from "@/components/map";
 import { MotionWrapper } from "@/components/animate";
+import OrnamentOmbakImage from "@/assets/images/ornament-ombak-copy-min.png";
 import PutriLogo from "@/assets/images/putri_logo.png";
 import { useSearchParams } from "next/navigation";
 
@@ -301,7 +302,7 @@ export const ParallaxOpened = forwardRef<HTMLAudioElement, Props>(
               animate={{ opacity: 1 }}
               transition={{ duration: 2 }}
             >
-              <div className="address w-full flex flex-col items-center bg-[#62796b] border-t-2 border-b-2 border-dotted">
+              <div className="address w-full flex flex-col items-center bg-[#62796b] border-t-2 border-b-2 border-dotted border-l-[10px] border-r-[10px] border-[#d3ccac]">
                 {/* <Text variant="TITLE" customClass="text-white text-5xl">
                   Alamat
                 </Text> */}
@@ -313,64 +314,115 @@ export const ParallaxOpened = forwardRef<HTMLAudioElement, Props>(
           <ParallaxLayer offset={4} speed={0.5}>
             <MotionWrapper>
               <div className="w-full h-[300px] p-5 flex flex-col gap-5 justify-between bg-[#62796f]/50 border-t-2 border-b-2 border-dashed">
-                <Text
-                  variant="TITLE"
-                  customClass="text-white text-xl"
-                  textAlign="CENTER"
+                <MotionWrapper
+                  transition={{ duration: 1 }}
+                  initial={{ x: -100 }}
+                  animate={{ x: 0 }}
                 >
-                  Doa untuk pengantin
-                </Text>
-                <div className="flex flex-col gap-5">
                   <Text
                     variant="TITLE"
-                    customClass="text-white text-3xl"
+                    customClass="text-white text-xl"
                     textAlign="CENTER"
                   >
-                    بَارَكَ اللَّهُ لَكَ وَبَارَكَ عَلَيْكَ وَ جَمَعَ
-                    بَيْنَكُمَا فِي خَيْرٍ
+                    Doa untuk pengantin
                   </Text>
-                  <Text customClass="text-white text-5xl" textAlign="CENTER">
-                    &quot;Semoga Allah memberkahi engkau di waktu lapang maupun
-                    di waktu sempit, dan semoga Allah (senantiasa) mengumpulkan
-                    kalian berdua dalam kebaikan.&quot; (HR Abu Dawud)
-                  </Text>
+                </MotionWrapper>
+
+                <div className="flex flex-col gap-5">
+                  <MotionWrapper
+                    transition={{ duration: 1.3 }}
+                    initial={{ x: -100 }}
+                    animate={{ x: 0 }}
+                  >
+                    <Text
+                      variant="TITLE"
+                      customClass="text-white text-3xl"
+                      textAlign="CENTER"
+                    >
+                      بَارَكَ اللَّهُ لَكَ وَبَارَكَ عَلَيْكَ وَ جَمَعَ
+                      بَيْنَكُمَا فِي خَيْرٍ
+                    </Text>
+                  </MotionWrapper>
+                  <MotionWrapper
+                    transition={{ duration: 1.6 }}
+                    initial={{ x: -100 }}
+                    animate={{ x: 0 }}
+                  >
+                    <Text customClass="text-white text-5xl" textAlign="CENTER">
+                      &quot;Semoga Allah memberkahi engkau di waktu lapang
+                      maupun di waktu sempit, dan semoga Allah (senantiasa)
+                      mengumpulkan kalian berdua dalam kebaikan.&quot; (HR Abu
+                      Dawud)
+                    </Text>
+                  </MotionWrapper>
                 </div>
               </div>
             </MotionWrapper>
           </ParallaxLayer>
           {!formalMode ? (
             <ParallaxLayer offset={5} speed={0.5}>
-              <div className="bg-[#62786b] h-fit flex flex-col items-start justify-center gap-10 p-5 border-l-[10px] border-[#d3ccac]">
-                <div className="flex flex-col gap-2">
-                  <Text variant="TITLE" customClass="text-white text-3xl">
-                    Wedding Gift
-                  </Text>
-                  <Text variant="BODY" customClass="text-white" textAlign="LEFT">
-                    Apabila berkenan, Bapak/I/Saudara/i dapat memberikan doa
-                    restu serta tanda kasih melalui transfer ke rekening
-                    berikut:
-                  </Text>
-                </div>
-                <div className="flex flex-col">
-                  <Text variant="BODY" customClass="text-xl text-white">
-                    Bank BSI
-                  </Text>
-                  <div className="flex flex-col items-start justify-center gap-5 text-white cursor-pointer">
-                    <Text variant="BODY" customClass="text-xl">
-                      7202949422 a/n Putri Handayani
+              <div className="bg-[#62786b] h-fit flex flex-col items-start justify-center gap-10 border-l-[10px] border-[#d3ccac]">
+                <div className="flex flex-col gap-2 p-5">
+                  <MotionWrapper
+                    transition={{ duration: 0.7 }}
+                    initial={{ y: 100 }}
+                    animate={{ y: 0 }}
+                  >
+                    <Text variant="TITLE" customClass="text-white text-3xl">
+                      Wedding Gift
                     </Text>
-                    <Button
-                      onClick={() => copyText("7202949422")}
-                      className="bg-transparent hover:bg-transparent border border-white flex items-center gap-2"
+                  </MotionWrapper>
+                  <MotionWrapper
+                    transition={{ duration: 1 }}
+                    initial={{ y: 100 }}
+                    animate={{ y: 0 }}
+                  >
+                    <Text
+                      variant="BODY"
+                      customClass="text-white"
+                      textAlign="LEFT"
                     >
-                      {copy ? "" : <Copy />}
-                      {copy ? "Disalin!" : "Salin"}
-                    </Button>
-                  </div>
+                      Apabila berkenan, Bapak/I/Saudara/i dapat memberikan doa
+                      restu serta tanda kasih melalui transfer ke rekening
+                      berikut:
+                    </Text>
+                  </MotionWrapper>
+                </div>
+                <div className="flex flex-col p-5">
+                  <MotionWrapper
+                    transition={{ duration: 1.2 }}
+                    initial={{ y: 100 }}
+                    animate={{ y: 0 }}
+                  >
+                    <Text variant="BODY" customClass="text-xl text-white">
+                      Bank BSI
+                    </Text>
+                    <div className="flex flex-col items-start justify-center gap-5 text-white cursor-pointer">
+                      <Text variant="BODY" customClass="text-xl">
+                        7202949422 a/n Putri Handayani
+                      </Text>
+                      <Button
+                        onClick={() => copyText("7202949422")}
+                        className="bg-transparent hover:bg-transparent border border-white flex items-center gap-2"
+                      >
+                        {copy ? "" : <Copy />}
+                        {copy ? "Disalin!" : "Salin"}
+                      </Button>
+                    </div>
+                  </MotionWrapper>
+                </div>
+                <div className="w-full">
+                  <Image
+                    priority
+                    alt="flower ombak"
+                    src={OrnamentOmbakImage}
+                  />
                 </div>
               </div>
             </ParallaxLayer>
-          ) : <></>}
+          ) : (
+            <></>
+          )}
           <ParallaxLayer offset={!formalMode ? 6 : 5} speed={0.5}>
             <MainElements>
               <ParallaxLayer offset={0.5}>
